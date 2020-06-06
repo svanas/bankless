@@ -1,0 +1,277 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  ActiveControl = edtAddress
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = Single
+  Caption = 'Bankless Savings'
+  ClientHeight = 279
+  ClientWidth = 592
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object edtAddress: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 79.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    OnChange = edtAddressChange
+  end
+  object lblAddress: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 11.000000000000000000
+    Text = 'My address:'
+    TabOrder = 0
+  end
+  object cboCurrency: TComboBox
+    Position.X = 484.000000000000000000
+    Position.Y = 8.000000000000000000
+    TabOrder = 3
+    OnChange = cboCurrencyChange
+  end
+  object lblCompound: TLabel
+    Position.X = 46.000000000000000000
+    Position.Y = 94.000000000000000000
+    Size.Width = 393.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Compound'
+    TabOrder = 8
+  end
+  object cboChain: TComboBox
+    Position.X = 376.000000000000000000
+    Position.Y = 8.000000000000000000
+    TabOrder = 2
+    OnChange = cboChainChange
+  end
+  object lblFulcrum: TLabel
+    Position.X = 46.000000000000000000
+    Position.Y = 129.000000000000000000
+    Size.Width = 393.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Fulcrum'
+    TabOrder = 12
+  end
+  object lblAave: TLabel
+    Position.X = 46.000000000000000000
+    Position.Y = 164.000000000000000000
+    Size.Width = 393.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Aave'
+    TabOrder = 16
+  end
+  object edtCompound: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 9
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    Position.X = 226.000000000000000000
+    Position.Y = 91.000000000000000000
+    OnChange = edtBalanceChange
+  end
+  object edtFulcrum: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 13
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    Position.X = 226.000000000000000000
+    Position.Y = 126.000000000000000000
+    OnChange = edtBalanceChange
+  end
+  object edtAave: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 17
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    Position.X = 226.000000000000000000
+    Position.Y = 161.000000000000000000
+    OnChange = edtBalanceChange
+  end
+  object btnCompound: TButton
+    Position.X = 464.000000000000000000
+    Position.Y = 91.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    Text = 'Transfer'
+    OnClick = btnCompoundClick
+  end
+  object btnFulcrum: TButton
+    Position.X = 464.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 15
+    Text = 'Transfer'
+    OnClick = btnFulcrumClick
+  end
+  object btnAave: TButton
+    Position.X = 464.000000000000000000
+    Position.Y = 161.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 19
+    Text = 'Transfer'
+    OnClick = btnAaveClick
+  end
+  object lblDYDX: TLabel
+    Position.X = 46.000000000000000000
+    Position.Y = 199.000000000000000000
+    Size.Width = 393.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'dYdX'
+    TabOrder = 20
+  end
+  object edtDYDX: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 21
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    Position.X = 226.000000000000000000
+    Position.Y = 196.000000000000000000
+    OnChange = edtBalanceChange
+  end
+  object btnDYDX: TButton
+    Position.X = 464.000000000000000000
+    Position.Y = 196.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 23
+    Text = 'Transfer'
+    OnClick = btnDYDXClick
+  end
+  object btnRefresh: TButton
+    Position.X = 246.000000000000000000
+    Position.Y = 245.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 24
+    Text = 'Refresh'
+    OnClick = btnRefreshClick
+  end
+  object cboCompound: TComboBox
+    Items.Strings = (
+      'Highest'
+      'Fulcrum'
+      'Aave'
+      'dYdX'
+      'Wallet')
+    ItemIndex = 0
+    Position.X = 354.000000000000000000
+    Position.Y = 91.000000000000000000
+    TabOrder = 10
+    OnChange = cboProtoChange
+  end
+  object cboFulcrum: TComboBox
+    Items.Strings = (
+      'Highest'
+      'Compound'
+      'Aave'
+      'dYdX'
+      'Wallet')
+    ItemIndex = 0
+    Position.X = 354.000000000000000000
+    Position.Y = 126.000000000000000000
+    TabOrder = 14
+    OnChange = cboProtoChange
+  end
+  object cboAave: TComboBox
+    Items.Strings = (
+      'Highest'
+      'Compound'
+      'Fulcrum'
+      'dYdX'
+      'Wallet')
+    ItemIndex = 0
+    Position.X = 354.000000000000000000
+    Position.Y = 161.000000000000000000
+    TabOrder = 18
+    OnChange = cboProtoChange
+  end
+  object cboDYDX: TComboBox
+    Items.Strings = (
+      'Highest'
+      'Compound'
+      'Fulcrum'
+      'Aave'
+      'Wallet')
+    ItemIndex = 0
+    Position.X = 354.000000000000000000
+    Position.Y = 196.000000000000000000
+    TabOrder = 22
+    OnChange = cboProtoChange
+  end
+  object Line1: TLine
+    LineType = Top
+    Position.X = 8.000000000000000000
+    Position.Y = 42.000000000000000000
+    Size.Width = 577.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Line2: TLine
+    LineType = Top
+    Position.X = 8.000000000000000000
+    Position.Y = 231.000000000000000000
+    Size.Width = 577.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblWallet: TLabel
+    Position.X = 46.000000000000000000
+    Position.Y = 59.000000000000000000
+    Size.Width = 393.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'My wallet balance'
+    TabOrder = 4
+  end
+  object edtWallet: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    Position.X = 226.000000000000000000
+    Position.Y = 56.000000000000000000
+    OnChange = edtBalanceChange
+  end
+  object cboWallet: TComboBox
+    Items.Strings = (
+      'Highest'
+      'Compound'
+      'Fulcrum'
+      'Aave'
+      'dYdX')
+    ItemIndex = 0
+    Position.X = 354.000000000000000000
+    Position.Y = 56.000000000000000000
+    TabOrder = 6
+  end
+  object btnWallet: TButton
+    Position.X = 464.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = 'Deposit'
+    OnClick = btnWalletClick
+  end
+end
