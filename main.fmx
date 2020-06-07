@@ -14,9 +14,9 @@ object frmMain: TfrmMain
   object edtAddress: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 1
-    Position.X = 79.000000000000000000
+    Position.X = 88.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 289.000000000000000000
+    Size.Width = 280.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     OnChange = edtAddressChange
@@ -24,6 +24,10 @@ object frmMain: TfrmMain
   object lblAddress: TLabel
     Position.X = 8.000000000000000000
     Position.Y = 11.000000000000000000
+    Size.Width = 72.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Trailing
     Text = 'My address:'
     TabOrder = 0
   end
@@ -34,9 +38,10 @@ object frmMain: TfrmMain
     OnChange = cboCurrencyChange
   end
   object lblCompound: TLabel
-    Position.X = 46.000000000000000000
+    StyledSettings = [Family, Size, Style]
+    Position.X = 48.000000000000000000
     Position.Y = 94.000000000000000000
-    Size.Width = 393.000000000000000000
+    Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Compound'
@@ -49,18 +54,20 @@ object frmMain: TfrmMain
     OnChange = cboChainChange
   end
   object lblFulcrum: TLabel
-    Position.X = 46.000000000000000000
+    StyledSettings = [Family, Size, Style]
+    Position.X = 48.000000000000000000
     Position.Y = 129.000000000000000000
-    Size.Width = 393.000000000000000000
+    Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Fulcrum'
     TabOrder = 12
   end
   object lblAave: TLabel
-    Position.X = 46.000000000000000000
+    StyledSettings = [Family, Size, Style]
+    Position.X = 48.000000000000000000
     Position.Y = 164.000000000000000000
-    Size.Width = 393.000000000000000000
+    Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Aave'
@@ -72,7 +79,7 @@ object frmMain: TfrmMain
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
-    Position.X = 226.000000000000000000
+    Position.X = 228.000000000000000000
     Position.Y = 91.000000000000000000
     OnChange = edtBalanceChange
   end
@@ -82,7 +89,7 @@ object frmMain: TfrmMain
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
-    Position.X = 226.000000000000000000
+    Position.X = 228.000000000000000000
     Position.Y = 126.000000000000000000
     OnChange = edtBalanceChange
   end
@@ -92,44 +99,45 @@ object frmMain: TfrmMain
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
-    Position.X = 226.000000000000000000
+    Position.X = 228.000000000000000000
     Position.Y = 161.000000000000000000
     OnChange = edtBalanceChange
   end
   object btnCompound: TButton
-    Position.X = 464.000000000000000000
+    Position.X = 336.000000000000000000
     Position.Y = 91.000000000000000000
-    Size.Width = 80.000000000000000000
+    Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 11
-    Text = 'Transfer'
+    TabOrder = 10
+    Text = 'Transfer to'
     OnClick = btnCompoundClick
   end
   object btnFulcrum: TButton
-    Position.X = 464.000000000000000000
+    Position.X = 336.000000000000000000
     Position.Y = 126.000000000000000000
-    Size.Width = 80.000000000000000000
+    Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 15
-    Text = 'Transfer'
+    TabOrder = 14
+    Text = 'Transfer to'
     OnClick = btnFulcrumClick
   end
   object btnAave: TButton
-    Position.X = 464.000000000000000000
+    Position.X = 336.000000000000000000
     Position.Y = 161.000000000000000000
-    Size.Width = 80.000000000000000000
+    Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 19
-    Text = 'Transfer'
+    TabOrder = 18
+    Text = 'Transfer to'
     OnClick = btnAaveClick
   end
   object lblDYDX: TLabel
-    Position.X = 46.000000000000000000
+    StyledSettings = [Family, Size, Style]
+    Position.X = 48.000000000000000000
     Position.Y = 199.000000000000000000
-    Size.Width = 393.000000000000000000
+    Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'dYdX'
@@ -141,18 +149,18 @@ object frmMain: TfrmMain
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
-    Position.X = 226.000000000000000000
+    Position.X = 228.000000000000000000
     Position.Y = 196.000000000000000000
     OnChange = edtBalanceChange
   end
   object btnDYDX: TButton
-    Position.X = 464.000000000000000000
+    Position.X = 336.000000000000000000
     Position.Y = 196.000000000000000000
-    Size.Width = 80.000000000000000000
+    Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 23
-    Text = 'Transfer'
+    TabOrder = 22
+    Text = 'Transfer to'
     OnClick = btnDYDXClick
   end
   object btnRefresh: TButton
@@ -173,9 +181,9 @@ object frmMain: TfrmMain
       'dYdX'
       'Wallet')
     ItemIndex = 0
-    Position.X = 354.000000000000000000
+    Position.X = 444.000000000000000000
     Position.Y = 91.000000000000000000
-    TabOrder = 10
+    TabOrder = 11
     OnChange = cboProtoChange
   end
   object cboFulcrum: TComboBox
@@ -186,9 +194,9 @@ object frmMain: TfrmMain
       'dYdX'
       'Wallet')
     ItemIndex = 0
-    Position.X = 354.000000000000000000
+    Position.X = 444.000000000000000000
     Position.Y = 126.000000000000000000
-    TabOrder = 14
+    TabOrder = 15
     OnChange = cboProtoChange
   end
   object cboAave: TComboBox
@@ -199,9 +207,9 @@ object frmMain: TfrmMain
       'dYdX'
       'Wallet')
     ItemIndex = 0
-    Position.X = 354.000000000000000000
+    Position.X = 444.000000000000000000
     Position.Y = 161.000000000000000000
-    TabOrder = 18
+    TabOrder = 19
     OnChange = cboProtoChange
   end
   object cboDYDX: TComboBox
@@ -212,9 +220,9 @@ object frmMain: TfrmMain
       'Aave'
       'Wallet')
     ItemIndex = 0
-    Position.X = 354.000000000000000000
+    Position.X = 444.000000000000000000
     Position.Y = 196.000000000000000000
-    TabOrder = 22
+    TabOrder = 23
     OnChange = cboProtoChange
   end
   object Line1: TLine
@@ -234,9 +242,9 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
   end
   object lblWallet: TLabel
-    Position.X = 46.000000000000000000
+    Position.X = 48.000000000000000000
     Position.Y = 59.000000000000000000
-    Size.Width = 393.000000000000000000
+    Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'My wallet balance'
@@ -248,7 +256,7 @@ object frmMain: TfrmMain
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
-    Position.X = 226.000000000000000000
+    Position.X = 228.000000000000000000
     Position.Y = 56.000000000000000000
     OnChange = edtBalanceChange
   end
@@ -260,18 +268,18 @@ object frmMain: TfrmMain
       'Aave'
       'dYdX')
     ItemIndex = 0
-    Position.X = 354.000000000000000000
+    Position.X = 444.000000000000000000
     Position.Y = 56.000000000000000000
-    TabOrder = 6
+    TabOrder = 7
   end
   object btnWallet: TButton
-    Position.X = 464.000000000000000000
+    Position.X = 336.000000000000000000
     Position.Y = 56.000000000000000000
-    Size.Width = 80.000000000000000000
+    Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 7
-    Text = 'Deposit'
+    TabOrder = 6
+    Text = 'Deposit to'
     OnClick = btnWalletClick
   end
 end
