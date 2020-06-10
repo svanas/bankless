@@ -14,9 +14,9 @@ object frmMain: TfrmMain
   object edtAddress: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 1
-    Position.X = 88.000000000000000000
+    Position.X = 96.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 280.000000000000000000
+    Size.Width = 272.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     OnChange = edtAddressChange
@@ -24,7 +24,7 @@ object frmMain: TfrmMain
   object lblAddress: TLabel
     Position.X = 8.000000000000000000
     Position.Y = 11.000000000000000000
-    Size.Width = 72.000000000000000000
+    Size.Width = 80.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.HorzAlign = Trailing
