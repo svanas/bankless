@@ -285,9 +285,9 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>bankless-44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>bankless-150.png</UWP_DelphiLogo150>
-        <PF_UWPPublisher>CN=svanas</PF_UWPPublisher>
-        <PF_UWPPackageName>Bankless</PF_UWPPackageName>
-        <PF_UWPPackageDisplayName>Bankless Savings</PF_UWPPackageDisplayName>
+        <PF_UWPPublisher>CN=0C7656C1-F74F-4036-8245-1AA4207C0E80</PF_UWPPublisher>
+        <PF_UWPPackageName>59126StefanvonDutch.Bankless</PF_UWPPackageName>
+        <PF_UWPPackageDisplayName>Bankless</PF_UWPPackageDisplayName>
         <PF_UWPPublisherDisplayName>Stefan van As</PF_UWPPublisherDisplayName>
         <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
