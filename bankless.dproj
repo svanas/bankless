@@ -280,7 +280,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Stefan van As;FileDescription=Bankless is a DeFi desktop app with the highest possible yield on your stable coin savings.;FileVersion=1.0.1.0;InternalName=Bankless;LegalCopyright=Copyright © 2020 Stefan van As;LegalTrademarks=All brand names and product names are trademarks or registered trademarks of their respective owners.;OriginalFilename=bankless.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Bankless;ProductVersion=1.0.1.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Stefan van As;FileDescription=Bankless is a DeFi desktop app with the highest possible yield on your stable coin savings.;FileVersion=1.0.1.0;InternalName=$(MSBuildProjectName);LegalCopyright=Copyright © 2020 Stefan van As;LegalTrademarks=All brand names and product names are trademarks or registered trademarks of their respective owners.;OriginalFilename=bankless.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.1.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>bankless-44.png</UWP_DelphiLogo44>
@@ -358,6 +358,11 @@
                 <DeployFile LocalName="OSX64\Release\bankless.dSYM" Configuration="Release" Class="ProjectOSXDebug">
                     <Platform Name="OSX64">
                         <RemoteName>bankless</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Debug\AppxManifest.xml" Configuration="Debug" Class="ProjectUWPManifest">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
