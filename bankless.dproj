@@ -283,7 +283,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Stefan van As;FileDescription=Bankless is a DeFi desktop app with the highest possible yield on your stable coin savings.;FileVersion=1.0.1.0;InternalName=$(MSBuildProjectName);LegalCopyright=Copyright © 2020 Stefan van As;LegalTrademarks=All brand names and product names are trademarks or registered trademarks of their respective owners.;OriginalFilename=bankless.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.1.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Stefan van As;FileDescription=Bankless is a DeFi desktop app with the highest possible yield on your stable coin savings.;FileVersion=1.0.2.0;InternalName=$(MSBuildProjectName);LegalCopyright=Copyright © 2020 Stefan van As;LegalTrademarks=All brand names and product names are trademarks or registered trademarks of their respective owners.;OriginalFilename=bankless.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=Do you not have an Ethereum wallet? No problem! You can create a free Ethereum wallet at https://www.myetherwallet.com or https://mycrypto.com</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>bankless-44.png</UWP_DelphiLogo44>
@@ -292,7 +292,7 @@
         <PF_UWPPackageName>59126StefanvonDutch.Bankless</PF_UWPPackageName>
         <PF_UWPPackageDisplayName>Bankless</PF_UWPPackageDisplayName>
         <PF_UWPPublisherDisplayName>Stefan van As</PF_UWPPublisherDisplayName>
-        <VerInfo_Release>1</VerInfo_Release>
+        <VerInfo_Release>2</VerInfo_Release>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -304,8 +304,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_OSX64)'!=''">
         <BT_BuildType>DeveloperID</BT_BuildType>
-        <PF_AppSpecificPassword>852347CE5F9A079FCF3CE52CA4437BBAE442080C7EAFECA99F067775D849A8BFA5F2A3D4E3461C7AC1CC5726FA95C375BABB361604372280162A45D6E5EA228CC90BF304D51EFAE2BFD6AF4307031D1B92423E061DE8090BE3F016FF446E788F659D644ABE9D</PF_AppSpecificPassword>
+        <PF_AppSpecificPassword>852347CE5F9A079FCF3CE52CD171E33F81850535A05F97C997AA0FF88E783C8ADB56A385E3111C2FC1E2577DFAC4C363BA95367E043722D3163A459DE5E4229DC938F341D558FA9BBFF8AF1172328582F7DF3353C3537251EB0C6E6E124EECE81B6B644ABE9D</PF_AppSpecificPassword>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
