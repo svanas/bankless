@@ -289,7 +289,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Stefan van As;FileDescription=Bankless is a DeFi desktop app with the highest possible yield on your stablecoin savings.;FileVersion=1.0.6.0;InternalName=$(MSBuildProjectName);LegalCopyright=Copyright © 2020 Stefan van As;LegalTrademarks=All brand names and product names are trademarks or registered trademarks of their respective owners.;OriginalFilename=bankless.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.6.0;Comments=Do you not have an Ethereum wallet? No problem! You can create a free Ethereum wallet at https://www.myetherwallet.com or https://mycrypto.com</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Stefan van As;FileDescription=Bankless is a DeFi desktop app with the highest possible yield on your stablecoin savings.;FileVersion=1.0.7.0;InternalName=$(MSBuildProjectName);LegalCopyright=Copyright © 2020 Stefan van As;LegalTrademarks=All brand names and product names are trademarks or registered trademarks of their respective owners.;OriginalFilename=bankless.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.7.0;Comments=Do you not have an Ethereum wallet? No problem! You can create a free Ethereum wallet at https://www.myetherwallet.com or https://mycrypto.com</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>bankless-44.png</UWP_DelphiLogo44>
@@ -298,7 +298,7 @@
         <PF_UWPPackageName>59126StefanvonDutch.Bankless</PF_UWPPackageName>
         <PF_UWPPackageDisplayName>Bankless</PF_UWPPackageDisplayName>
         <PF_UWPPublisherDisplayName>Stefan van As</PF_UWPPublisherDisplayName>
-        <VerInfo_Release>6</VerInfo_Release>
+        <VerInfo_Release>7</VerInfo_Release>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
@@ -313,14 +313,14 @@
     <PropertyGroup Condition="'$(Cfg_1_OSX64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Build>5</VerInfo_Build>
-        <PF_AppSpecificPassword>852347CE5F9A079FCF3CE52CA4437BBAE442080C7EAFECA99F060FFA8E613CC1DB2AA38CE3111C2FC1E2573AFACFC36BBAE83658042922D216784587E5FC22A2C924F30FD545FA8FBFBBAF5307131D6A921D3E581DAE0939E3EC6E6E124EECE81B6B644ABE9D</PF_AppSpecificPassword>
+        <PF_AppSpecificPassword>852347CE5F9A079FCF3C7131D12CE37981B20541A00D978D97E60FBE8E6C3C8ADB57A3DEE3551C63C1E35725FAC7C317BA95360204642291163A459CE5B722BEC916F341D513FACCBFF83B0E72328582F7DF3353C3537251EB0C6E6E124EECE81B6B644ABE9D</PF_AppSpecificPassword>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Release>6</VerInfo_Release>
+        <VerInfo_Release>7</VerInfo_Release>
         <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -337,7 +337,7 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Release>6</VerInfo_Release>
+        <VerInfo_Release>7</VerInfo_Release>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
