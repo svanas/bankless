@@ -4,7 +4,6 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <PropertyGroup>
-        <DeviceId Condition="'$(Platform)'=='iOSDevice32'"/>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
         <DeviceId Condition="'$(Platform)'=='iOSSimulator'"/>
     </PropertyGroup>
@@ -58,18 +57,6 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='iOSDevice64'"/>
-    <ItemGroup Condition="'$(Platform)'=='OSX32'">
-        <DeployFile Include="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib">
-            <RemoteDir>bankless.app\Contents\MacOS\</RemoteDir>
-            <RemoteName>libcgunwind.1.0.dylib</RemoteName>
-            <DeployClass>DependencyModule</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-    </ItemGroup>
-    <ItemGroup Condition="'$(Platform)'=='iOSDevice32'"/>
     <ItemGroup Condition="'$(Platform)'=='OSX64'">
         <DeployFile Include="OSX64\Release\bankless.dSYM" Condition="'$(Config)'=='Release'">
             <RemoteDir>bankless.app\..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF\</RemoteDir>
@@ -164,6 +151,7 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
     </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='Win64'"/>
     <ItemGroup Condition="'$(Platform)'=='iOSSimulator'">
         <DeployFile Include="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib">
             <RemoteDir>bankless.app\</RemoteDir>
