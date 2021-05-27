@@ -8,7 +8,7 @@ uses
   web3.eth.defi;
 
 type
-  TAsyncAPYs = reference to procedure(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Extended);
+  TAsyncAPYs = reference to procedure(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Extended; err: IError);
 
   TAPYCache = record
   private
@@ -79,7 +79,7 @@ begin
   and (O  <> 0)
   and (M  <> 0) then
   begin
-    callback(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M);
+    callback(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M, nil);
     EXIT;
   end;
 
@@ -90,6 +90,11 @@ begin
   else
     TCompound.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.C := value
       else
@@ -102,6 +107,11 @@ begin
   begin
     TFulcrum.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.F := value
       else
@@ -114,6 +124,11 @@ begin
   else
     TAave.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.A := value
       else
@@ -125,6 +140,11 @@ begin
   else
     TdYdX.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.D := value
       else
@@ -136,6 +156,11 @@ begin
   else
     TIdle.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.I := value
       else
@@ -147,6 +172,11 @@ begin
   else
     TyEarnV2.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.Y2 := value
       else
@@ -158,6 +188,11 @@ begin
   else
     TyEarnV3.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.Y3 := value
       else
@@ -169,6 +204,11 @@ begin
   else
     TyVaultV1.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.V1 := value
       else
@@ -180,6 +220,11 @@ begin
   else
     TyVaultV2.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.V2 := value
       else
@@ -191,6 +236,11 @@ begin
   else
     TRari.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.R := value
       else
@@ -202,6 +252,11 @@ begin
   else
     TOrigin.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.O := value
       else
@@ -213,6 +268,11 @@ begin
   else
     TmStable.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
+      if Assigned(err) then
+      begin
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        EXIT;
+      end;
       if (value <> 0) and (not IsNAN(value)) then
         S.M := value
       else
@@ -239,7 +299,7 @@ begin
       and (S.O  <> 0)
       and (S.M  <> 0) then
       begin
-        callback(S.C, S.F, S.A, S.D, S.I, S.Y2, S.Y3, S.V1, S.V2, S.R, S.O, S.M);
+        callback(S.C, S.F, S.A, S.D, S.I, S.Y2, S.Y3, S.V1, S.V2, S.R, S.O, S.M, nil);
         EXIT;
       end;
     end;
