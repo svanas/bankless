@@ -15,7 +15,7 @@ type
     C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Extended;
   public
     procedure Clear;
-    procedure Get(client: TWeb3; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
+    procedure Get(client: IWeb3; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
   end;
 
 implementation
@@ -57,7 +57,7 @@ begin
 end;
 
 procedure TAPYCache.Get(
-  client  : TWeb3;
+  client  : IWeb3;
   reserve : TReserve;
   period  : TPeriod;
   callback: TAsyncAPYs);
