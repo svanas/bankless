@@ -7,12 +7,37 @@ uses
   web3,
   web3.eth.defi;
 
+// C  == Compound
+// F  == Fulcrum
+// A  == Aave
+// D  == dYdX
+// I  == Idle
+// Y2 == Yearn earn v2
+// Y3 == Yearn earn v3
+// V1 == Yearn vault v1
+// V2 == Yearn vault v2
+// R  == Rari Capital
+// O  == Origin Dollar
+// M  == mStable
+
 type
   TAsyncAPYs = reference to procedure(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Extended; err: IError);
 
+type
+  TAPYItem = record
+  private
+    FReady: Boolean;
+    FValue: Extended;
+    procedure Clear;
+    procedure SetValue(aValue: Extended);
+  public
+    property Ready: Boolean read FReady;
+    property Value: Extended read FValue write SetValue;
+  end;
+
   TAPYCache = record
   private
-    C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Extended;
+    C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: TAPYItem;
   public
     procedure Clear;
     procedure Get(client: IWeb3; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
@@ -40,20 +65,36 @@ uses
   web3.eth.yearn.vaults.v1,
   web3.eth.yearn.vaults.v2;
 
+{ TAPYItem }
+
+procedure TAPYItem.Clear;
+begin
+  Self.FReady := False;
+  Self.FValue := 0;
+end;
+
+procedure TAPYItem.SetValue(aValue: Extended);
+begin
+  Self.FValue := aValue;
+  Self.FReady := True;
+end;
+
+{ TAPYCache }
+
 procedure TAPYCache.Clear;
 begin
-  C  := 0;
-  F  := 0;
-  A  := 0;
-  D  := 0;
-  I  := 0;
-  Y2 := 0;
-  Y3 := 0;
-  V1 := 0;
-  V2 := 0;
-  R  := 0;
-  O  := 0;
-  M  := 0;
+  C.Clear;
+  F.Clear;
+  A.Clear;
+  D.Clear;
+  I.Clear;
+  Y2.Clear;
+  Y3.Clear;
+  V1.Clear;
+  V2.Clear;
+  R.Clear;
+  O.Clear;
+  M.Clear;
 end;
 
 procedure TAPYCache.Get(
@@ -66,27 +107,27 @@ type
 var
   S: PAPYCache;
 begin
-  if  (C  <> 0)
-  and (F  <> 0)
-  and (A  <> 0)
-  and (D  <> 0)
-  and (I  <> 0)
-  and (Y2 <> 0)
-  and (Y3 <> 0)
-  and (V1 <> 0)
-  and (V2 <> 0)
-  and (R  <> 0)
-  and (O  <> 0)
-  and (M  <> 0) then
+  if  (C.Ready)
+  and (F.Ready)
+  and (A.Ready)
+  and (D.Ready)
+  and (I.Ready)
+  and (Y2.Ready)
+  and (Y3.Ready)
+  and (V1.Ready)
+  and (V2.Ready)
+  and (R.Ready)
+  and (O.Ready)
+  and (M.Ready) then
   begin
-    callback(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M, nil);
+    callback(C.Value, F.Value, A.Value, D.Value, I.Value, Y2.Value, Y3.Value, V1.Value, V2.Value, R.Value, O.Value, M.Value, nil);
     EXIT;
   end;
 
   S := @Self;
 
   if not TCompound.Supports(client.Chain, reserve) then
-    C := -1
+    C.Value := -1
   else
     TCompound.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -95,14 +136,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.C := value
+      if not IsNAN(value) then
+        S.C.Value := value
       else
-        S.C := -1;
+        S.C.Value := -1;
     end);
 
   if not TFulcrum.Supports(client.Chain, reserve) then
-    F := -1
+    F.Value := -1
   else
   begin
     TFulcrum.APY(client, reserve, period, procedure(value: Extended; err: IError)
@@ -112,15 +153,15 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.F := value
+      if not IsNAN(value) then
+        S.F.Value := value
       else
-        S.F := -1;
+        S.F.Value := -1;
     end);
   end;
 
   if not TAave.Supports(client.Chain, reserve) then
-    A := -1
+    A.Value := -1
   else
     TAave.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -129,14 +170,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.A := value
+      if not IsNAN(value) then
+        S.A.Value := value
       else
-        S.A := -1;
+        S.A.Value := -1;
     end);
 
   if not TdYdX.Supports(client.Chain, reserve) then
-    D := -1
+    D.Value := -1
   else
     TdYdX.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -145,14 +186,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.D := value
+      if not IsNAN(value) then
+        S.D.Value := value
       else
-        S.D := -1;
+        S.D.Value := -1;
     end);
 
   if not TIdle.Supports(client.Chain, reserve) then
-    I := -1
+    I.Value := -1
   else
     TIdle.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -161,14 +202,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.I := value
+      if not IsNAN(value) then
+        S.I.Value := value
       else
-        S.I := -1;
+        S.I.Value := -1;
     end);
 
   if not TyEarnV2.Supports(client.Chain, reserve) then
-    Y2 := -1
+    Y2.Value := -1
   else
     TyEarnV2.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -177,14 +218,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.Y2 := value
+      if not IsNAN(value) then
+        S.Y2.Value := value
       else
-        S.Y2 := -1;
+        S.Y2.Value := -1;
     end);
 
   if not TyEarnV3.Supports(client.Chain, reserve) then
-    Y3 := -1
+    Y3.Value := -1
   else
     TyEarnV3.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -193,14 +234,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.Y3 := value
+      if not IsNAN(value) then
+        S.Y3.Value := value
       else
-        S.Y3 := -1;
+        S.Y3.Value := -1;
     end);
 
   if not TyVaultV1.Supports(client.Chain, reserve) then
-    V1 := -1
+    V1.Value := -1
   else
     TyVaultV1.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -209,14 +250,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.V1 := value
+      if not IsNAN(value) then
+        S.V1.Value := value
       else
-        S.V1 := -1;
+        S.V1.Value := -1;
     end);
 
   if not TyVaultV2.Supports(client.Chain, reserve) then
-    V2 := -1
+    V2.Value := -1
   else
     TyVaultV2.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -225,14 +266,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.V2 := value
+      if not IsNAN(value) then
+        S.V2.Value := value
       else
-        S.V2 := -1;
+        S.V2.Value := -1;
     end);
 
   if not TRari.Supports(client.Chain, reserve) then
-    R := -1
+    R.Value := -1
   else
     TRari.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -241,14 +282,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.R := value
+      if not IsNAN(value) then
+        S.R.Value := value
       else
-        S.R := -1;
+        S.R.Value := -1;
     end);
 
   if not TOrigin.Supports(client.Chain, reserve) then
-    O := -1
+    O.Value := -1
   else
     TOrigin.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -257,14 +298,14 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.O := value
+      if not IsNAN(value) then
+        S.O.Value := value
       else
-        S.O := -1;
+        S.O.Value := -1;
     end);
 
   if not TmStable.Supports(client.Chain, reserve) then
-    M := -1
+    M.Value := -1
   else
     TmStable.APY(client, reserve, period, procedure(value: Extended; err: IError)
     begin
@@ -273,10 +314,10 @@ begin
         callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
-      if (value <> 0) and (not IsNAN(value)) then
-        S.M := value
+      if not IsNAN(value) then
+        S.M.Value := value
       else
-        S.M := -1;
+        S.M.Value := -1;
     end);
 
   TTask.Create(procedure
@@ -286,20 +327,20 @@ begin
       try
         TTask.CurrentTask.Wait(250);
       except end;
-      if  (S.C  <> 0)
-      and (S.F  <> 0)
-      and (S.A  <> 0)
-      and (S.D  <> 0)
-      and (S.I  <> 0)
-      and (S.Y2 <> 0)
-      and (S.Y3 <> 0)
-      and (S.V1 <> 0)
-      and (S.V2 <> 0)
-      and (S.R  <> 0)
-      and (S.O  <> 0)
-      and (S.M  <> 0) then
+      if  (S.C.Ready)
+      and (S.F.Ready)
+      and (S.A.Ready)
+      and (S.D.Ready)
+      and (S.I.Ready)
+      and (S.Y2.Ready)
+      and (S.Y3.Ready)
+      and (S.V1.Ready)
+      and (S.V2.Ready)
+      and (S.R.Ready)
+      and (S.O.Ready)
+      and (S.M.Ready) then
       begin
-        callback(S.C, S.F, S.A, S.D, S.I, S.Y2, S.Y3, S.V1, S.V2, S.R, S.O, S.M, nil);
+        callback(S.C.Value, S.F.Value, S.A.Value, S.D.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V1.Value, S.V2.Value, S.R.Value, S.O.Value, S.M.Value, nil);
         EXIT;
       end;
     end;
