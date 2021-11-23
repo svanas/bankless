@@ -21,18 +21,18 @@ uses
 // M  == mStable
 
 type
-  TAsyncAPYs = reference to procedure(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Extended; err: IError);
+  TAsyncAPYs = reference to procedure(C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: Double; err: IError);
 
 type
   TAPYItem = record
   private
     FReady: Boolean;
-    FValue: Extended;
+    FValue: Double;
     procedure Clear;
-    procedure SetValue(aValue: Extended);
+    procedure SetValue(aValue: Double);
   public
     property Ready: Boolean read FReady;
-    property Value: Extended read FValue write SetValue;
+    property Value: Double read FValue write SetValue;
   end;
 
   TAPYCache = record
@@ -73,7 +73,7 @@ begin
   Self.FValue := 0;
 end;
 
-procedure TAPYItem.SetValue(aValue: Extended);
+procedure TAPYItem.SetValue(aValue: Double);
 begin
   Self.FValue := aValue;
   Self.FReady := True;
@@ -129,7 +129,7 @@ begin
   if not TCompound.Supports(client.Chain, reserve) then
     C.Value := -1
   else
-    TCompound.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TCompound.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -146,7 +146,7 @@ begin
     F.Value := -1
   else
   begin
-    TFulcrum.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TFulcrum.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -163,7 +163,7 @@ begin
   if not TAave.Supports(client.Chain, reserve) then
     A.Value := -1
   else
-    TAave.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TAave.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -179,7 +179,7 @@ begin
   if not TdYdX.Supports(client.Chain, reserve) then
     D.Value := -1
   else
-    TdYdX.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TdYdX.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -195,7 +195,7 @@ begin
   if not TIdle.Supports(client.Chain, reserve) then
     I.Value := -1
   else
-    TIdle.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TIdle.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -211,7 +211,7 @@ begin
   if not TyEarnV2.Supports(client.Chain, reserve) then
     Y2.Value := -1
   else
-    TyEarnV2.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TyEarnV2.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -227,7 +227,7 @@ begin
   if not TyEarnV3.Supports(client.Chain, reserve) then
     Y3.Value := -1
   else
-    TyEarnV3.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TyEarnV3.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -243,7 +243,7 @@ begin
   if not TyVaultV1.Supports(client.Chain, reserve) then
     V1.Value := -1
   else
-    TyVaultV1.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TyVaultV1.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -259,7 +259,7 @@ begin
   if not TyVaultV2.Supports(client.Chain, reserve) then
     V2.Value := -1
   else
-    TyVaultV2.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TyVaultV2.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -275,7 +275,7 @@ begin
   if not TRari.Supports(client.Chain, reserve) then
     R.Value := -1
   else
-    TRari.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TRari.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -291,7 +291,7 @@ begin
   if not TOrigin.Supports(client.Chain, reserve) then
     O.Value := -1
   else
-    TOrigin.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TOrigin.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -307,7 +307,7 @@ begin
   if not TmStable.Supports(client.Chain, reserve) then
     M.Value := -1
   else
-    TmStable.APY(client, reserve, period, procedure(value: Extended; err: IError)
+    TmStable.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
