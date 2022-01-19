@@ -5,7 +5,8 @@ interface
 uses
   // web3
   web3,
-  web3.eth.defi;
+  web3.eth.defi,
+  web3.sync;
 
 // C  == Compound
 // F  == Fulcrum
@@ -36,6 +37,9 @@ type
   end;
 
   TAPYCache = record
+  private
+    FQueue: ICriticalQueue<TAsyncAPYs>;
+    function Queue: ICriticalQueue<TAsyncAPYs>;
   private
     C, F, A, D, I, Y2, Y3, V1, V2, R, O, M: TAPYItem;
   public
@@ -97,6 +101,13 @@ begin
   M.Clear;
 end;
 
+function TAPYCache.Queue: ICriticalQueue<TAsyncAPYs>;
+begin
+  if not Assigned(FQueue) then
+    FQueue := TCriticalQueue<TAsyncAPYs>.Create;
+  Result := FQueue;
+end;
+
 procedure TAPYCache.Get(
   client  : IWeb3;
   reserve : TReserve;
@@ -122,6 +133,15 @@ begin
   begin
     callback(C.Value, F.Value, A.Value, D.Value, I.Value, Y2.Value, Y3.Value, V1.Value, V2.Value, R.Value, O.Value, M.Value, nil);
     EXIT;
+  end;
+
+  Queue.Enter;
+  try
+    Queue.Add(callback);
+    if Queue.Length > 1 then
+      EXIT;
+  finally
+    Queue.Leave;
   end;
 
   S := @Self;
@@ -340,7 +360,20 @@ begin
       and (S.O.Ready)
       and (S.M.Ready) then
       begin
-        callback(S.C.Value, S.F.Value, S.A.Value, S.D.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V1.Value, S.V2.Value, S.R.Value, S.O.Value, S.M.Value, nil);
+        S.Queue.Enter;
+        try
+          while S.Queue.Length > 0 do
+          begin
+            var callback := S.Queue.First;
+            try
+              callback(S.C.Value, S.F.Value, S.A.Value, S.D.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V1.Value, S.V2.Value, S.R.Value, S.O.Value, S.M.Value, nil);
+            finally
+              S.Queue.Delete(0, 1);
+            end;
+          end;
+        finally
+          S.Queue.Leave;
+        end;
         EXIT;
       end;
     end;
