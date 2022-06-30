@@ -242,7 +242,7 @@ object frmMain: TfrmMain
     Enabled = False
     Items.Strings = (
       'Highest'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -285,7 +285,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'dYdX'
       'yEarn v2'
       'yEarn v3'
@@ -306,7 +306,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'yEarn v2'
       'yEarn v3'
@@ -349,7 +349,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -502,7 +502,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -609,7 +609,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v3'
@@ -641,7 +641,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -707,7 +707,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -768,7 +768,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -789,7 +789,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
@@ -850,7 +850,7 @@ object frmMain: TfrmMain
     Items.Strings = (
       'Highest'
       'Compound'
-      'Fulcrum'
+      'Ooki'
       'Aave'
       'dYdX'
       'yEarn v2'
