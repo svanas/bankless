@@ -5,7 +5,7 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = Single
   Caption = 'Bankless Savings'
-  ClientHeight = 596
+  ClientHeight = 562
   ClientWidth = 637
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -16,7 +16,7 @@ object frmMain: TfrmMain
     Position.X = 40.000000000000000000
     Position.Y = 408.000000000000000000
     Size.Width = 557.000000000000000000
-    Size.Height = 144.000000000000000000
+    Size.Height = 110.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claSilver
     XRadius = 10.000000000000000000
@@ -230,11 +230,11 @@ object frmMain: TfrmMain
   end
   object btnRefresh: TButton
     Position.X = 268.000000000000000000
-    Position.Y = 563.000000000000000000
+    Position.Y = 529.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 56
+    TabOrder = 52
     Text = 'Refresh'
     OnClick = btnRefreshClick
   end
@@ -250,7 +250,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -271,7 +270,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -292,7 +290,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -313,7 +310,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -357,7 +353,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin')
     ItemIndex = 0
     Position.X = 484.000000000000000000
@@ -400,7 +395,7 @@ object frmMain: TfrmMain
     Images = IL
   end
   object MM: TMainMenu
-    Top = 568
+    Top = 536
     object mnuNetwork: TMenuItem
       Text = 'Network'
     end
@@ -509,7 +504,6 @@ object frmMain: TfrmMain
       'yEarn v3'
       'yVault'
       'yVault v2'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -616,7 +610,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -648,7 +641,6 @@ object frmMain: TfrmMain
       'yEarn v3'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -661,67 +653,6 @@ object frmMain: TfrmMain
     Position.X = 52.000000000000000000
     Position.Y = 58.000000000000000000
     Images = IL
-  end
-  object imgRari: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 455.000000000000000000
-    ImageIndex = 9
-    Images = IL
-  end
-  object lblRari: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 455.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'Rari'
-    TabOrder = 44
-  end
-  object edtRari: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 45
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 452.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
-  object btnRari: TButton
-    Enabled = False
-    Position.X = 376.000000000000000000
-    Position.Y = 452.000000000000000000
-    Size.Width = 100.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 46
-    Text = 'Transfer to'
-    OnClick = btnRariClick
-  end
-  object cboRari: TComboBox
-    Enabled = False
-    Items.Strings = (
-      'Highest'
-      'Compound'
-      'Ooki'
-      'Aave'
-      'dYdX'
-      'yEarn v2'
-      'yEarn v3'
-      'yVault'
-      'yVault v2'
-      'Idle'
-      'Origin'
-      'Wallet')
-    ItemIndex = 0
-    Position.X = 484.000000000000000000
-    Position.Y = 452.000000000000000000
-    TabOrder = 47
-    OnChange = cboProtoChange
   end
   object edtYearnV3: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -775,7 +706,6 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -796,7 +726,6 @@ object frmMain: TfrmMain
       'yEarn v3'
       'yVault'
       'Idle'
-      'Rari'
       'Origin'
       'Wallet')
     ItemIndex = 0
@@ -858,26 +787,71 @@ object frmMain: TfrmMain
       'yVault'
       'yVault v2'
       'Idle'
-      'Rari'
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 486.000000000000000000
-    TabOrder = 51
+    Position.Y = 452.000000000000000000
+    TabOrder = 47
     OnChange = cboProtoChange
   end
   object btnOrigin: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 486.000000000000000000
+    Position.Y = 452.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 50
+    TabOrder = 46
     Text = 'Transfer to'
     OnClick = btnOriginClick
   end
   object edtOrigin: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 45
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    Position.X = 268.000000000000000000
+    Position.Y = 452.000000000000000000
+    Enabled = False
+    OnChange = edtBalanceChange
+  end
+  object lblOrigin: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 455.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Origin'
+    TabOrder = 44
+  end
+  object imgOrigin: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 455.000000000000000000
+    ImageIndex = 9
+    Images = IL
+  end
+  object imgStable: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 489.000000000000000000
+    ImageIndex = 10
+    Images = IL
+  end
+  object lblStable: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 489.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'mStable'
+    TabOrder = 48
+  end
+  object edtStable: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 49
     Cursor = crIBeam
@@ -889,66 +863,20 @@ object frmMain: TfrmMain
     Enabled = False
     OnChange = edtBalanceChange
   end
-  object lblOrigin: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 489.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'Origin'
-    TabOrder = 48
-  end
-  object imgOrigin: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 489.000000000000000000
-    ImageIndex = 10
-    Images = IL
-  end
-  object imgStable: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 523.000000000000000000
-    ImageIndex = 11
-    Images = IL
-  end
-  object lblStable: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 523.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'mStable'
-    TabOrder = 52
-  end
-  object edtStable: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 53
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 520.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
   object btnStable: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 520.000000000000000000
+    Position.Y = 486.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 54
+    TabOrder = 50
   end
   object cboStable: TComboBox
     Enabled = False
     Position.X = 484.000000000000000000
-    Position.Y = 520.000000000000000000
-    TabOrder = 55
+    Position.Y = 486.000000000000000000
+    TabOrder = 51
     OnChange = cboProtoChange
   end
   object IL: TImageList
@@ -1398,38 +1326,6 @@ object frmMain: TfrmMain
       item
         MultiResBitmap = <
           item
-            Width = 16
-            Height = 16
-            PNG = {
-              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              027A49444154384FA5534B6B1A61149D19EB98E8C45ADB1A5F60DA148434D656
-              0A962EA2E0AA4BB1BB4220C54DC80F70695C8A6B7F40962164E126092E0515C4
-              950135815A8C20D6F7236A8C8ED3F30D138B6D773930DF65EE775FE7CC1DEAB1
-              904976098220D04AA572CD66B3BDDCDCDCE4AC562B9FCFE767D2F51268C92E70
-              7A7A6AEE743ACE66B3C955AB551E966E341A0C7C75D874B95CEE4AA122962648
-              26931F66B3D94E3C1EEF5E5C5C50DD6E57A656AB058BC5329A4C2674BD5EFFA8
-              52A99A83C1A02FA5FC29502C165F310CF3797F7FFFD7F5F5B5D1E7F3B1DBDBDB
-              8AE974CADEDDDD29DC6E37A7D168AA994CE63DC7713FC6E3F184E48905C099E1
-              79FE4B241269E67239D3F1F1B1B0B1B1514650BAD56AFDBCBABA7A0A0D56FD7E
-              BF1A8DDAA0A1437C89E48AC048EBE0BA2B97CBBF21F97BBBDDDE91AE44048341
-              46ABD57A038180FFECECEC2B5CBB785872C7908365D917283081F27297CBF504
-              542E89FF01A150683E1C0E2F138904EB7038D8959515E2E6C821164067462693
-              09108882A5201C4FFC7F6186B169C4D08817A083982B1E40DB60302830C10C5C
-              E798E68DE45F0085AD1E8FE71EF4A628C4DC02A29F1C8787876304BCAB542AED
-              542AB566B7DB8D5EAF57703A9DB766B379151D3FE974BAD7D168940E87C33D34
-              1941E03CC95D2C1284B48D462307841A984CA6E75B5B5B74AD5613A0380DCEC2
-              C1C10179AFEEEDED19F05963A552A94EF21605C8FA627457AFD7B39C9F9FB7E6
-              F3F933D092198D464AAFD7DFA7D3E9DED1D191A1DFEFA7B00B627782A5552645
-              0A85C25B28EEC0DAF2D881295698BEB9B951A0FB3DA64CC662B18A142EE29F7F
-              81209BCDCAB1B6EB78B4108DC7540DF06E9D9C9CFCEFEB3C0614F51BD30748CF
-              6491F1FB0000000049454E44AE426082}
-          end>
-        Name = 'Rari'
-      end
-      item
-        MultiResBitmap = <
-          item
             Scale = 2.000000000000000000
             Width = 32
             Height = 32
@@ -1601,12 +1497,6 @@ object frmMain: TfrmMain
       item
         Layers = <
           item
-            Name = 'Rari'
-          end>
-      end
-      item
-        Layers = <
-          item
             Name = 'Origin'
           end>
       end
@@ -1623,6 +1513,6 @@ object frmMain: TfrmMain
           end>
       end>
     Left = 28
-    Top = 568
+    Top = 536
   end
 end
