@@ -5,7 +5,7 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = Single
   Caption = 'Bankless Savings'
-  ClientHeight = 562
+  ClientHeight = 528
   ClientWidth = 637
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -14,7 +14,7 @@ object frmMain: TfrmMain
   object rctYieldAggregators: TRectangle
     Fill.Color = claWhite
     Position.X = 40.000000000000000000
-    Position.Y = 408.000000000000000000
+    Position.Y = 374.000000000000000000
     Size.Width = 557.000000000000000000
     Size.Height = 110.000000000000000000
     Size.PlatformDefault = False
@@ -25,7 +25,7 @@ object frmMain: TfrmMain
   object rctYearn: TRectangle
     Fill.Color = claWhite
     Position.X = 40.000000000000000000
-    Position.Y = 253.000000000000000000
+    Position.Y = 219.000000000000000000
     Size.Width = 557.000000000000000000
     Size.Height = 144.000000000000000000
     Size.PlatformDefault = False
@@ -38,7 +38,7 @@ object frmMain: TfrmMain
     Position.X = 40.000000000000000000
     Position.Y = 98.000000000000000000
     Size.Width = 557.000000000000000000
-    Size.Height = 144.000000000000000000
+    Size.Height = 110.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claSilver
     XRadius = 10.000000000000000000
@@ -194,47 +194,13 @@ object frmMain: TfrmMain
     Text = 'Transfer to'
     OnClick = btnAaveClick
   end
-  object lblDYDX: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 213.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'dYdX'
-    TabOrder = 20
-  end
-  object edtDYDX: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 21
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 210.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
-  object btnDYDX: TButton
-    Enabled = False
-    Position.X = 376.000000000000000000
-    Position.Y = 210.000000000000000000
-    Size.Width = 100.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 22
-    Text = 'Transfer to'
-    OnClick = btnDYDXClick
-  end
   object btnRefresh: TButton
     Position.X = 268.000000000000000000
-    Position.Y = 529.000000000000000000
+    Position.Y = 495.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 52
+    TabOrder = 48
     Text = 'Refresh'
     OnClick = btnRefreshClick
   end
@@ -244,7 +210,6 @@ object frmMain: TfrmMain
       'Highest'
       'Ooki'
       'Aave'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -264,7 +229,6 @@ object frmMain: TfrmMain
       'Highest'
       'Compound'
       'Aave'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -284,7 +248,6 @@ object frmMain: TfrmMain
       'Highest'
       'Compound'
       'Ooki'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -296,26 +259,6 @@ object frmMain: TfrmMain
     Position.X = 484.000000000000000000
     Position.Y = 176.000000000000000000
     TabOrder = 19
-    OnChange = cboProtoChange
-  end
-  object cboDYDX: TComboBox
-    Enabled = False
-    Items.Strings = (
-      'Highest'
-      'Compound'
-      'Ooki'
-      'Aave'
-      'yEarn v2'
-      'yEarn v3'
-      'yVault'
-      'yVault v2'
-      'Idle'
-      'Origin'
-      'Wallet')
-    ItemIndex = 0
-    Position.X = 484.000000000000000000
-    Position.Y = 210.000000000000000000
-    TabOrder = 23
     OnChange = cboProtoChange
   end
   object lblWallet: TLabel
@@ -347,7 +290,6 @@ object frmMain: TfrmMain
       'Compound'
       'Ooki'
       'Aave'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -388,14 +330,8 @@ object frmMain: TfrmMain
     ImageIndex = 5
     Images = IL
   end
-  object imgDYDX: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 213.000000000000000000
-    ImageIndex = 6
-    Images = IL
-  end
   object MM: TMainMenu
-    Top = 536
+    Top = 496
     object mnuNetwork: TMenuItem
       Text = 'Network'
     end
@@ -471,24 +407,24 @@ object frmMain: TfrmMain
   end
   object edtIdle: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 41
+    TabOrder = 37
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
     KeyboardType = NumbersAndPunctuation
     Position.X = 268.000000000000000000
-    Position.Y = 418.000000000000000000
+    Position.Y = 384.000000000000000000
     Enabled = False
     OnChange = edtBalanceChange
   end
   object btnIdle: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 418.000000000000000000
+    Position.Y = 384.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 42
+    TabOrder = 38
     Text = 'Transfer to'
     OnClick = btnIdleClick
   end
@@ -499,7 +435,6 @@ object frmMain: TfrmMain
       'Compound'
       'Ooki'
       'Aave'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -508,36 +443,36 @@ object frmMain: TfrmMain
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 418.000000000000000000
-    TabOrder = 43
+    Position.Y = 384.000000000000000000
+    TabOrder = 39
     OnChange = cboProtoChange
   end
   object lblIdle: TLabel
     Enabled = False
     StyledSettings = [Family, Size, Style]
     Position.X = 88.000000000000000000
-    Position.Y = 421.000000000000000000
+    Position.Y = 387.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Idle'
-    TabOrder = 40
+    TabOrder = 36
   end
   object imgIdle: TGlyph
     Position.X = 52.000000000000000000
-    Position.Y = 421.000000000000000000
-    ImageIndex = 7
+    Position.Y = 387.000000000000000000
+    ImageIndex = 6
     Images = IL
   end
   object edtYearnV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 25
+    TabOrder = 21
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
     KeyboardType = NumbersAndPunctuation
     Position.X = 268.000000000000000000
-    Position.Y = 263.000000000000000000
+    Position.Y = 229.000000000000000000
     Enabled = False
     OnChange = edtBalanceChange
   end
@@ -545,116 +480,20 @@ object frmMain: TfrmMain
     Enabled = False
     StyledSettings = [Family, Size, Style]
     Position.X = 88.000000000000000000
-    Position.Y = 266.000000000000000000
+    Position.Y = 232.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'yEarn v2'
-    TabOrder = 24
+    TabOrder = 20
   end
   object imgYearnV2: TGlyph
     Position.X = 52.000000000000000000
-    Position.Y = 266.000000000000000000
-    ImageIndex = 8
+    Position.Y = 232.000000000000000000
+    ImageIndex = 7
     Images = IL
   end
   object edtYvault: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 33
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 331.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
-  object lblYvault: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 334.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'yVault v1'
-    TabOrder = 32
-  end
-  object imgYvault: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 334.000000000000000000
-    ImageIndex = 8
-    Images = IL
-  end
-  object btnYearnV2: TButton
-    Enabled = False
-    Position.X = 376.000000000000000000
-    Position.Y = 263.000000000000000000
-    Size.Width = 100.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 26
-    Text = 'Transfer to'
-    OnClick = btnYearnV2Click
-  end
-  object cboYearnV2: TComboBox
-    Enabled = False
-    Items.Strings = (
-      'Highest'
-      'Compound'
-      'Ooki'
-      'Aave'
-      'dYdX'
-      'yEarn v3'
-      'yVault'
-      'yVault v2'
-      'Idle'
-      'Origin'
-      'Wallet')
-    ItemIndex = 0
-    Position.X = 484.000000000000000000
-    Position.Y = 263.000000000000000000
-    TabOrder = 27
-    OnChange = cboProtoChange
-  end
-  object btnYvault: TButton
-    Enabled = False
-    Position.X = 376.000000000000000000
-    Position.Y = 331.000000000000000000
-    Size.Width = 100.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 34
-    Text = 'Transfer to'
-    OnClick = btnYvaultClick
-  end
-  object cboYvault: TComboBox
-    Enabled = False
-    Items.Strings = (
-      'Highest'
-      'Compound'
-      'Ooki'
-      'Aave'
-      'dYdX'
-      'yEarn v2'
-      'yEarn v3'
-      'yVault v2'
-      'Idle'
-      'Origin'
-      'Wallet')
-    ItemIndex = 0
-    Position.X = 484.000000000000000000
-    Position.Y = 331.000000000000000000
-    TabOrder = 35
-    OnChange = cboProtoChange
-  end
-  object imgWallet: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 58.000000000000000000
-    Images = IL
-  end
-  object edtYearnV3: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 29
     Cursor = crIBeam
@@ -666,7 +505,7 @@ object frmMain: TfrmMain
     Enabled = False
     OnChange = edtBalanceChange
   end
-  object lblYearnV3: TLabel
+  object lblYvault: TLabel
     Enabled = False
     StyledSettings = [Family, Size, Style]
     Position.X = 88.000000000000000000
@@ -674,16 +513,46 @@ object frmMain: TfrmMain
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'yEarn v3'
+    Text = 'yVault v1'
     TabOrder = 28
   end
-  object imgYearnV3: TGlyph
+  object imgYvault: TGlyph
     Position.X = 52.000000000000000000
     Position.Y = 300.000000000000000000
-    ImageIndex = 8
+    ImageIndex = 7
     Images = IL
   end
-  object btnYearnV3: TButton
+  object btnYearnV2: TButton
+    Enabled = False
+    Position.X = 376.000000000000000000
+    Position.Y = 229.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 22
+    Text = 'Transfer to'
+    OnClick = btnYearnV2Click
+  end
+  object cboYearnV2: TComboBox
+    Enabled = False
+    Items.Strings = (
+      'Highest'
+      'Compound'
+      'Ooki'
+      'Aave'
+      'yEarn v3'
+      'yVault'
+      'yVault v2'
+      'Idle'
+      'Origin'
+      'Wallet')
+    ItemIndex = 0
+    Position.X = 484.000000000000000000
+    Position.Y = 229.000000000000000000
+    TabOrder = 23
+    OnChange = cboProtoChange
+  end
+  object btnYvault: TButton
     Enabled = False
     Position.X = 376.000000000000000000
     Position.Y = 297.000000000000000000
@@ -692,18 +561,17 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 30
     Text = 'Transfer to'
-    OnClick = btnYearnV3Click
+    OnClick = btnYvaultClick
   end
-  object cboYearnV3: TComboBox
+  object cboYvault: TComboBox
     Enabled = False
     Items.Strings = (
       'Highest'
       'Compound'
       'Ooki'
       'Aave'
-      'dYdX'
       'yEarn v2'
-      'yVault'
+      'yEarn v3'
       'yVault v2'
       'Idle'
       'Origin'
@@ -714,6 +582,70 @@ object frmMain: TfrmMain
     TabOrder = 31
     OnChange = cboProtoChange
   end
+  object imgWallet: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 58.000000000000000000
+    Images = IL
+  end
+  object edtYearnV3: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 25
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    Position.X = 268.000000000000000000
+    Position.Y = 263.000000000000000000
+    Enabled = False
+    OnChange = edtBalanceChange
+  end
+  object lblYearnV3: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 266.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'yEarn v3'
+    TabOrder = 24
+  end
+  object imgYearnV3: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 266.000000000000000000
+    ImageIndex = 7
+    Images = IL
+  end
+  object btnYearnV3: TButton
+    Enabled = False
+    Position.X = 376.000000000000000000
+    Position.Y = 263.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 26
+    Text = 'Transfer to'
+    OnClick = btnYearnV3Click
+  end
+  object cboYearnV3: TComboBox
+    Enabled = False
+    Items.Strings = (
+      'Highest'
+      'Compound'
+      'Ooki'
+      'Aave'
+      'yEarn v2'
+      'yVault'
+      'yVault v2'
+      'Idle'
+      'Origin'
+      'Wallet')
+    ItemIndex = 0
+    Position.X = 484.000000000000000000
+    Position.Y = 263.000000000000000000
+    TabOrder = 27
+    OnChange = cboProtoChange
+  end
   object cboYvaultV2: TComboBox
     Enabled = False
     Items.Strings = (
@@ -721,7 +653,6 @@ object frmMain: TfrmMain
       'Compound'
       'Ooki'
       'Aave'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -730,30 +661,30 @@ object frmMain: TfrmMain
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 365.000000000000000000
-    TabOrder = 39
+    Position.Y = 331.000000000000000000
+    TabOrder = 35
     OnChange = cboProtoChange
   end
   object btnYvaultV2: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 365.000000000000000000
+    Position.Y = 331.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 38
+    TabOrder = 34
     Text = 'Transfer to'
     OnClick = btnYvaultV2Click
   end
   object edtYvaultV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 37
+    TabOrder = 33
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
     KeyboardType = NumbersAndPunctuation
     Position.X = 268.000000000000000000
-    Position.Y = 365.000000000000000000
+    Position.Y = 331.000000000000000000
     Enabled = False
     OnChange = edtBalanceChange
   end
@@ -761,17 +692,17 @@ object frmMain: TfrmMain
     Enabled = False
     StyledSettings = [Family, Size, Style]
     Position.X = 88.000000000000000000
-    Position.Y = 368.000000000000000000
+    Position.Y = 334.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'yVault v2'
-    TabOrder = 36
+    TabOrder = 32
   end
   object imgYvaultV2: TGlyph
     Position.X = 52.000000000000000000
-    Position.Y = 368.000000000000000000
-    ImageIndex = 8
+    Position.Y = 334.000000000000000000
+    ImageIndex = 7
     Images = IL
   end
   object cboOrigin: TComboBox
@@ -781,7 +712,6 @@ object frmMain: TfrmMain
       'Compound'
       'Ooki'
       'Aave'
-      'dYdX'
       'yEarn v2'
       'yEarn v3'
       'yVault'
@@ -790,22 +720,68 @@ object frmMain: TfrmMain
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 452.000000000000000000
-    TabOrder = 47
+    Position.Y = 418.000000000000000000
+    TabOrder = 43
     OnChange = cboProtoChange
   end
   object btnOrigin: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 452.000000000000000000
+    Position.Y = 418.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 46
+    TabOrder = 42
     Text = 'Transfer to'
     OnClick = btnOriginClick
   end
   object edtOrigin: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 41
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    Position.X = 268.000000000000000000
+    Position.Y = 418.000000000000000000
+    Enabled = False
+    OnChange = edtBalanceChange
+  end
+  object lblOrigin: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 421.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Origin'
+    TabOrder = 40
+  end
+  object imgOrigin: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 421.000000000000000000
+    ImageIndex = 8
+    Images = IL
+  end
+  object imgStable: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 455.000000000000000000
+    ImageIndex = 9
+    Images = IL
+  end
+  object lblStable: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 455.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'mStable'
+    TabOrder = 44
+  end
+  object edtStable: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 45
     Cursor = crIBeam
@@ -817,66 +793,20 @@ object frmMain: TfrmMain
     Enabled = False
     OnChange = edtBalanceChange
   end
-  object lblOrigin: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 455.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'Origin'
-    TabOrder = 44
-  end
-  object imgOrigin: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 455.000000000000000000
-    ImageIndex = 9
-    Images = IL
-  end
-  object imgStable: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 489.000000000000000000
-    ImageIndex = 10
-    Images = IL
-  end
-  object lblStable: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 489.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'mStable'
-    TabOrder = 48
-  end
-  object edtStable: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 49
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 486.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
   object btnStable: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 486.000000000000000000
+    Position.Y = 452.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 50
+    TabOrder = 46
   end
   object cboStable: TComboBox
     Enabled = False
     Position.X = 484.000000000000000000
-    Position.Y = 486.000000000000000000
-    TabOrder = 51
+    Position.Y = 452.000000000000000000
+    TabOrder = 47
     OnChange = cboProtoChange
   end
   object IL: TImageList
@@ -1067,155 +997,6 @@ object frmMain: TfrmMain
               00000049454E44AE426082}
           end>
         Name = 'Ooki'
-      end
-      item
-        MultiResBitmap = <
-          item
-            Scale = 3.000000000000000000
-            Width = 48
-            Height = 48
-            PNG = {
-              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
-              87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              10FC494441546843A55A0B8C5EC5753E33F7BFFFFFEFDB6BEFC360AFD75E63AF
-              6D0C365E1EB6216C79448260D1A40413A8A89256A034A1229052A908A975A422
-              A56A3055A152A88AD220126A372DB4A4A40D981853D3A636011BAFF01BDB8B57
-              F6DAEBF53EFFD7BDD3EF3B73EFEFF58360D2733D7766CE9C398F9973CECCFDD7
-              46FE1F70494F4F6D662C9E1606B6AB22F172E3DC9562A4C794DDA52EB20D9297
-              1AE348592C8A09869D331FC7C6EEB0B16C8F4476B930DA1F67B34303DBB74F28
-              C3DF007E2303BA7A7A9ACC78697E64C25BC4B85E89E34526903A290539C94635
-              F1D870C6D44DB7E06E8C53112E1E3F19DBBABAB294F305C9960B2E0E26C5DADD
-              CEB9D75D5CF9858472F0F0CE9DA75480D74B4DFF34F84C062C59B2A4BE60738B
-              5C2C6B6371B7D928E8908C341A23560928F21CD12EE9C09673A419712E76A664
-              86A330EA87B59BC0E69FF232F95E5F5FDF5842F4A970B10698B9DD572CB441B8
-              36326E6D501EEF32D9C65AAF9A43E51D05ED444B74B5C9DA8F78493A467AD68A
-              E026B1E1A45C904A785032EE8781311BF6EEDC7680F84F039DFCEBA0B3B3376F
-              EA276F0C247EB8608A37E44DAE51A771F992F9A93A536A55DDD78A993AAC3075
-              8E368DC12E0213C969F4DFAE98F87B617164EBBE7DFB8A9EE4C21024F50561CE
-              15373487B9C9FB82589E30D65C1F9A4C1E0263156B0802B46FEA42F2AD900C6B
-              0DE7F06DE7EB14948673FC3CBE68B43535280B6C645648AEA6D8D03EE3E0E9E3
-              C70B5EA3F3E1130D58D8D3D32295F8016BECB74D60167A2C57D28BA5D37BA1D4
-              40FBC0336E0969ED4751D279D8153F021A347486D67C253D188A2AB033815B1E
-              B84CDCD271C9EE93030317CC541734802B6F2BF200D83C6C8D990DDE31D70C80
-              2E25797551288A90F4315951699DE2531A28AD68B0F1434A9C76743E52936F20
-              7F19330DDB7DB9544CA9BE7D46DF8576E23C033A7B7BF3B962E95EB0F96304D3
-              2CF08ABD504A5037486412BC5CCA63478B0A67DF628D3D41754C8B0E03D23136
-              39A273B4417442E1ACB58D60D49D3199A1DA791D7D23FDFD158EA5404F380B72
-              A393AB9D89FF08CC3AD08D29C26F73A2FC19FE00D6671C87C0450E820044B01C
-              F9368E91705133F9D0206B0314D69CE51F28A1F181E974352D3445013AC08D3B
-              900CBE593F197F8E22545002E90E28F2B215ABE79BD8ADB3125C9F60F50197A9
-              2BCF5A919C454FF6B527A4A2954A8528C9E77014E77392C96480F6F84A14E97C
-              2895F048E69DC5DBA3531C01F4ADD0A2A5A56DCEB693C78F9C5424A0EA424B96
-              F4D61B1B7D0D1ADC8735AFC13428CDB5D2152109D9A23AB36994C0BED6100442
-              55B6B5B545162FEA96CFAD5E29ABAEBD5ABA172E505C6D6D8D84188F9180CB89
-              91A982AAABD6093FE5E8D32F7B58202B65D3664237D2367DFEBB8383874A4AC4
-              1761E1B295D75B17FC1DAE048BA13B5365758CB69C21559E535AC91B2B9CCD86
-              72DDD53D72CFDD5F94A5972F92DA9A1A4F845704572A148A72F8C8C7F2E6E6B7
-              E5ADFF7A470E1DEE97487744B94008E510B4E289A7ADA4C65901EB9CFB00CA7D
-              6DF7AFB66E235A77E00A641D17C8378C8CDF6A6C2E43D569BEDAA0B54F0C1E9F
-              2689A4621F100456562C5F260F7FF301B9EE9A1512552239D27F54F6ED3F2043
-              C3A7B1F2A1D4D7D74BE79C0ED05D21D9302BEFEDF840262727251304548EF2A0
-              AB67ACFF9217AB4415138D4B7D2634E30DB3DAFEF7D4C040410D983EBB738975
-              F2880D72B34087C0F553BD6AA98A4069E1DB6F34863468B98ACDD3A6C957EFFF
-              8ADC78C32A28FEB1AC7FF63979FE1F7E24AFBFF996BC81F2F34D9BE5FD9D7D70
-              9DB2EE4CDF87BBE557EFEF9472B9C4C056C68C0AAA9AD4499F62BC6CBC5D9033
-              59EC45A335D9B74E0C1C1E302B57AEAC192965BF1199E213A164A721DAFD2A54
-              DD66EA4612A6B6D183B8226ECBF3E775CAB34FFFA57474CC928D3F79459EFDFE
-              F372ECF860358009D96C4E9A1AEBA506068C8F8FCBE8D8389C35F5D6540EE10C
-              7FC59181EA4FA58C416E3B8D3CF5177933F1AC1D1FCFCD80EFDD124AAE09C424
-              48D8D8C421D33EDFDC0B5FFBFD213B5F02281A8650160A8D8E4F48A954965C2E
-              7756613A3D39740A71D02FA7E056AA17CF2D85540E5A6A502A037DA65C037DBC
-              2F389C300DF8B6E8AD846133E2369A8FF1853EE1C07412C12F981EFD66FAC2B4
-              A7795CF169F1CA33A74F4C4CAAEBC09FA57BC17C696B6BD56CC373205D50D265
-              B359C9E7F33036D4BEE295AFCA5559AA3C6D4874F0D2B4877F30C4063608E2EE
-              38B65DC1CC8E795F80637EDE04413DC86025A8FC44ADA9B0026BC57BA5C953DB
-              1EA9ABD9D8D880ECB3583A3B666B7B08AB3D3C3CA2F93F3DB8F4763AC543A83C
-              E7934D7A9678148DF07D2F82570BAF8F62CB15044FB03B689B35F70F8DCD2C85
-              BEC879048A21A9F7B784DC63F128B76A8F6D3005D7325C66F0C449696D9921F3
-              E676CAA2EE05D2DD7D99E6FB934343BA43292DD9EAA36292369E14A6B43530D0
-              5777F6F864B20DCAF09AA1A07DD6BC27A209736990951046F2C4550265AEB567
-              828781A4081DF42BE29B78B8C2A3A363F2E1EE7D1AB8F3E7CF9539D889CB9774
-              CBCCF6361943C08E8C8C22E099757422D87A7E78699D96A972001AC0F4081DD2
-              61344BB861664C3668EF98B76EEC9434D434E89E7966DAC06AA59B6A35B8B54D
-              99280824159360D184994126D0609DD6D4205DC84A33A64F97FABA3A59B4F032
-              B9EACAA53A3E70ECB88C8F4D789752769473368063D2F28B073D12A7F3949867
-              864F88D4D64B60962CB97922D710E5C46470CA25AB9D4CF45DBE52153D2822A1
-              F17DA7B97DC5F22BE5CB5F5A836B49B7EEC25F3FBDDE7DE5DEDF352FFDF8C5EA
-              DC1557AF322FFEE34FDCEE3DFB95295F699A254C519EA03298DA537CA2133A11
-              CEABD2A4CD35AAF27E946FEF2A7C741205505015A6F439C61B675D6D9DDCB9E6
-              3679F4E1AFCBEA55D76A7EFFE7977F2AC78626CD638F7FC77D7C7CC4ACBABED7
-              3CF6D89F9877B7BDE31EFAFAEF9B055D73FD4AE0D18B5DF278C669F1FDA9784F
-              45FA8C298E9ECE9B152B7B2381FBFB616F316909C9BA280EC8A4EBE502A13F2A
-              209FC96FDDB85ABEF5D083D2DEDE2A6FFEE26DF9E18B1BE5E04787A4502CBA72
-              99B166DDAC4B2F916B962D90471EFDB659FFD4F7DCD22B7BCCDF3EF703CD5453
-              0FBB0B00961FE1A661ACA00B0C6AA0CB74E5D224721283D7AB5E0D56781C5E0C
-              1DC49C0F248E6ADFDFD799E367B6B5C93D77DD29B32E9D29FFF3CBEDF2DCF32F
-              C8CE0FFA6462B24062C9E1F4CD0419E9C7BDE897EFED914DB85610565ED7A3A7
-              37BF1D082A5F1B670A709A281803A8A9030AB9720FCAAE60C2A28D6CFDE889A3
-              397E323268390405192C49C0E882EB31C62F12AE038D45BE1247E5962E99EF16
-              E0E05AB76E9DFB8FFF7CCD1D3EDCEF7848E1DAAC8BA2A72D6A1E60C78E0DCA1B
-              D821C2F4E6699A6A79A8A5345A540BEF525E3CF4E040B29C3A82D689A3D93870
-              F1B00DC51DC53D0C9F69A0512654589B289CCCB556042AB61578CA9A1C847775
-              5D669E5EFF94BBFFFEAF9A0FFA0E997239C299184027DD73906A06A11B990871
-              77E850BFBB7BEDBD2603232F99D9AE5770751FF024DF4416FE41552DE87A466C
-              731774BC6E962923F37F6C5D1C6C0FC3086EA4F8643273AFE65F76D9E63F7450
-              3C072D19A4C5A347F6B93F7DFC71F3C20B3F70B8EF53155518457978767459B6
-              E1B5958AD9B8E1C74C2C92CD65754D494E0555C854595A1457559C747C6A4B51
-              019BB3135F8F6E87CDDAA2AEB61410149E92A4683313A522FC9332014F1EAA04
-              E29306F0E96C3A83F638A028367888FDF617EFA245B84AFBEF7395C45A1F5F13
-              93163C9CAEBA19E8A8BCA9B335DBAC8DDD0E678231457A59741406A9AE1E1EDD
-              01D4BE52A48F0A5ED63CF83A8F9848044E5959EFBD7C021C5E8DF50D32634633
-              6EAD4E864F0DE35B22AE8E7B5ABAAD4E3D23AFAA0B111E0741E3A0DA650397DD
-              0FA1BBC58DE3DA58C7212552E0CA9C5B140F5E50A684150C6B9ACD934F3EE91E
-              79E451B37CD95293CFE50C3E1FF9730862011BACBF42585594317315BEC6A637
-              37EBDDE8C04787A558E29D8C4A533F1A4DF149BBDA67F1B2E13C3E3388DD03D6
-              FB2DD2F429F8C95BC6D58DC2326AE6895365ABA06C9529AD64FA2BE21BF7FD1D
-              BBDCDA7BEE33EB11C8AE32EA962E5DECB26188CB62C595CA653592AEC26BF6E2
-              450BE4F6DB6EC6A7659DEC3FF091ECDD77502A18ABA65296AAE25E9EEAA12591
-              4D1F2CE38346ECEBB6587F321818D853EEE85C341939B929B0A65DCC185C26AB
-              F4D4544DF275C2C48BD2076D042E338C3CF8E01F982FDC7EBBE99C339B3B00A5
-              CB2687D4C9EFE0B6B616B9F69AABE4FEFBEE9665CB96CA717CA9BDB4E165D9B5
-              0B1B9FA450E5CB1A4057D6A62F1AC07E680CAE9403B9DD8B6D7DFABFB7BE7C44
-              D13DB7DEDA9429E61FB766F421631A6B9903391583A9936BD06943DFBC917803
-              1807CDD39AE4AE2FDD216BEEF8BCB4B5B6E073714286E0DF8383FEE79B96D619
-              A069D48BDDB1E327E4E57F7D4D0B6FA734BE2A850D30A574CA215A758028E018
-              BC667CD8156A1AE2EF4F06E19FBFBFF99561EE9D193870A0D0396FD1B08DB3BD
-              58EE3631A3B454992585C04A39A66EA4BB802E7F2ED97FF0901C1D3886832927
-              8D0DF5D280956F85E22DADD3F5B02A140AB2031FF53F7AE95F64130EB3B1D1F1
-              845FCAD3F32510C53E6A5D7D8F1B853DF8A2CFC8DE58CC77B76FF9B73D8AD751
-              406FEFDDF56537F9A889E451096D13A662B21E46B41D2FD202E5315C0E6DA809
-              589E1885779AE6E626BDFFF36AC1DDA092C7074FE8EF41FCC8AF7EA1713E35C4
-              3CE551DDE384ABBA016A0EBAD3D0B9C956268BC3361F7E372B35CF6CDEBC51FF
-              8A432DAAB0FAA63BBB4DEC9E3232721B26902BD1605DBDCEAA98749217992A40
-              778AF527166615FEEEC35FE108FC2A2B21DBD0DD18B08C431AED79E9E25421E1
-              9DA2D80525DFFC1B61D3BF8B297D6BEB9B3FDB4F14C1877F02473EDA3DD4D1B5
-              70D048CD0AAC5C3B2789CD73B5BC8EBE785B50FC2AFAB9BE6F1D768177294763
-              4A2564A04A5997196780E1C99DB042E15C3FFF42418BC207560E2325D7E0B8CA
-              EF94A0F2675BDF7CED5D8C56C13BDD1970F1647E0B663E03D1474CD06C4D0C23
-              D497526DB5AD0F415BCC7CDA9BB2F3B02EC84069DC8B782670BA5F4A0259E94C
-              7DFC6C6DA7BC39EA289B3AE0BC3E82AFAD67C268FC1D9D3E05CEDA01427F7F5F
-              65CEECCB0EE0B615E3F8B9DCD8FA46139FC24ED4902D39A7F2B4AF6D3D37546C
-              E24F67BC8264F8C7BE8E707E5A94D2B77D48F9C2074185E329986ECBAE3280A4
-              FE37AE12BDB065CBCFCFFBEBE57906100E1FDE5BE89AB360B7D8B00456DD26A8
-              9DA6DCA3217CC1D4424F3D1948AAEE421D74220057611D4B0C224A5F553CBBC4
-              A33081FA13561F3F0E1962EBF0A154CB4FDC230194C735F6EFB76CF9E910F99C
-              0B17348070E8D09E898E59F3FB109027B0809D60DF6E6D1D36E52404D4AA5AFE
-              BE03A041BA8A54CCEB4D6574C88347F89A0D359A276CA2B7E2C9DB842D9E692C
-              1FE013E4AFE252052B7F61E5099F6800813BB178D1DC5DB1847D903003A5CD04
-              75352AB20261BA1BA95EC9A31DA5E018DF7A0069932BAE284F4204FE89F20AEA
-              7079AAC37D3B1E81E29BE073DF294D645EDDBAF5955155E61340E75F0CDC72CB
-              EF74558CAC3591F93D648379C68479E2990D5D79507DDE86ADE7A4D93424921E
-              95E684F2892A7D4A109764C204EE00B666838DCB1B6EBCF1AABDF8CAC305F3D7
-              C3451B40E06127A12C476AFA3234B9192AF0EF684D7025E5C304743E4C318915
-              BABAFA804AF1586CB3AD2350FF0892FCCF30B441CAF6C3F490BA18F82C0624E2
-              456EB8E3BEE66C65725EEC829B90376FC58D7E611009D254844323839D716154
-              3A6E835C1B2343A2D2311764DB709AE26088F89F3CA2A24886F7F90FB1479B11
-              A46F589BD9FFFAEB1BF957FACF049FC580F360CD9A35B5A39570BAB561972DCB
-              526C404F6CE22B6C64679BCCF0B44AB1981B1C6C774DB3CB851A178E1A171F45
-              E06C1713EFC0E7F17BA10407F2F9B1E1575F7D35FD237675912E0E44FE0F1D29
-              166DC9855A1A0000000049454E44AE426082}
-          end>
-        Name = 'dYdX'
       end
       item
         MultiResBitmap = <
@@ -1479,12 +1260,6 @@ object frmMain: TfrmMain
       item
         Layers = <
           item
-            Name = 'dYdX'
-          end>
-      end
-      item
-        Layers = <
-          item
             Name = 'Idle'
           end>
       end
@@ -1513,6 +1288,6 @@ object frmMain: TfrmMain
           end>
       end>
     Left = 28
-    Top = 536
+    Top = 496
   end
 end
