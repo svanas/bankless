@@ -9,18 +9,17 @@ uses
   web3.sync;
 
 // C  == Compound
-// F  == Fulcrum
+// F  == Ooki (previously known as Fulcrum)
 // A  == Aave
 // I  == Idle
 // Y2 == Yearn earn v2
 // Y3 == Yearn earn v3
-// V1 == Yearn vault v1
 // V2 == Yearn vault v2
 // O  == Origin Dollar
 // M  == mStable
 
 type
-  TAsyncAPYs = reference to procedure(C, F, A, I, Y2, Y3, V1, V2, O, M: Double; err: IError);
+  TAsyncAPYs = reference to procedure(C, F, A, I, Y2, Y3, V2, O, M: Double; err: IError);
 
 type
   TAPYItem = record
@@ -39,7 +38,7 @@ type
     FQueue: ICriticalQueue<TAsyncAPYs>;
     function Queue: ICriticalQueue<TAsyncAPYs>;
   private
-    C, F, A, I, Y2, Y3, V1, V2, O, M: TAPYItem;
+    C, F, A, I, Y2, Y3, V2, O, M: TAPYItem;
   public
     procedure Clear;
     procedure Get(client: IWeb3; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
@@ -62,7 +61,6 @@ uses
   web3.eth.origin.dollar,
   web3.eth.yearn.finance.v2,
   web3.eth.yearn.finance.v3,
-  web3.eth.yearn.vaults.v1,
   web3.eth.yearn.vaults.v2;
 
 { TAPYItem }
@@ -89,7 +87,6 @@ begin
   I.Clear;
   Y2.Clear;
   Y3.Clear;
-  V1.Clear;
   V2.Clear;
   O.Clear;
   M.Clear;
@@ -118,12 +115,11 @@ begin
   and (I.Ready)
   and (Y2.Ready)
   and (Y3.Ready)
-  and (V1.Ready)
   and (V2.Ready)
   and (O.Ready)
   and (M.Ready) then
   begin
-    callback(C.Value, F.Value, A.Value, I.Value, Y2.Value, Y3.Value, V1.Value, V2.Value, O.Value, M.Value, nil);
+    callback(C.Value, F.Value, A.Value, I.Value, Y2.Value, Y3.Value, V2.Value, O.Value, M.Value, nil);
     EXIT;
   end;
 
@@ -145,7 +141,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -162,7 +158,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -179,7 +175,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -195,7 +191,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -211,7 +207,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -227,29 +223,13 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
         S.Y3.Value := value
       else
         S.Y3.Value := -1;
-    end);
-
-  if not TyVaultV1.Supports(client.Chain, reserve) then
-    V1.Value := -1
-  else
-    TyVaultV1.APY(client, reserve, period, procedure(value: Double; err: IError)
-    begin
-      if Assigned(err) then
-      begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
-        EXIT;
-      end;
-      if not IsNAN(value) then
-        S.V1.Value := value
-      else
-        S.V1.Value := -1;
     end);
 
   if not TyVaultV2.Supports(client.Chain, reserve) then
@@ -259,7 +239,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -275,7 +255,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -291,7 +271,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -313,7 +293,6 @@ begin
       and (S.I.Ready)
       and (S.Y2.Ready)
       and (S.Y3.Ready)
-      and (S.V1.Ready)
       and (S.V2.Ready)
       and (S.O.Ready)
       and (S.M.Ready) then
@@ -324,7 +303,7 @@ begin
           begin
             var callback := S.Queue.First;
             try
-              callback(S.C.Value, S.F.Value, S.A.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V1.Value, S.V2.Value, S.O.Value, S.M.Value, nil);
+              callback(S.C.Value, S.F.Value, S.A.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V2.Value, S.O.Value, S.M.Value, nil);
             finally
               S.Queue.Delete(0, 1);
             end;

@@ -5,7 +5,7 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = Single
   Caption = 'Bankless Savings'
-  ClientHeight = 528
+  ClientHeight = 494
   ClientWidth = 637
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -14,7 +14,7 @@ object frmMain: TfrmMain
   object rctYieldAggregators: TRectangle
     Fill.Color = claWhite
     Position.X = 40.000000000000000000
-    Position.Y = 374.000000000000000000
+    Position.Y = 340.000000000000000000
     Size.Width = 557.000000000000000000
     Size.Height = 110.000000000000000000
     Size.PlatformDefault = False
@@ -27,7 +27,7 @@ object frmMain: TfrmMain
     Position.X = 40.000000000000000000
     Position.Y = 219.000000000000000000
     Size.Width = 557.000000000000000000
-    Size.Height = 144.000000000000000000
+    Size.Height = 110.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claSilver
     XRadius = 10.000000000000000000
@@ -196,11 +196,11 @@ object frmMain: TfrmMain
   end
   object btnRefresh: TButton
     Position.X = 268.000000000000000000
-    Position.Y = 495.000000000000000000
+    Position.Y = 461.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 48
+    TabOrder = 44
     Text = 'Refresh'
     OnClick = btnRefreshClick
   end
@@ -212,7 +212,6 @@ object frmMain: TfrmMain
       'Aave'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Idle'
       'Origin'
@@ -231,7 +230,6 @@ object frmMain: TfrmMain
       'Aave'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Idle'
       'Origin'
@@ -250,7 +248,6 @@ object frmMain: TfrmMain
       'Ooki'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Idle'
       'Origin'
@@ -292,7 +289,6 @@ object frmMain: TfrmMain
       'Aave'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Idle'
       'Origin')
@@ -331,7 +327,7 @@ object frmMain: TfrmMain
     Images = IL
   end
   object MM: TMainMenu
-    Top = 496
+    Top = 456
     object mnuNetwork: TMenuItem
       Text = 'Network'
     end
@@ -407,24 +403,24 @@ object frmMain: TfrmMain
   end
   object edtIdle: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 37
+    TabOrder = 33
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
     KeyboardType = NumbersAndPunctuation
     Position.X = 268.000000000000000000
-    Position.Y = 384.000000000000000000
+    Position.Y = 350.000000000000000000
     Enabled = False
     OnChange = edtBalanceChange
   end
   object btnIdle: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 384.000000000000000000
+    Position.Y = 350.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 38
+    TabOrder = 34
     Text = 'Transfer to'
     OnClick = btnIdleClick
   end
@@ -437,30 +433,29 @@ object frmMain: TfrmMain
       'Aave'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Origin'
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 384.000000000000000000
-    TabOrder = 39
+    Position.Y = 350.000000000000000000
+    TabOrder = 35
     OnChange = cboProtoChange
   end
   object lblIdle: TLabel
     Enabled = False
     StyledSettings = [Family, Size, Style]
     Position.X = 88.000000000000000000
-    Position.Y = 387.000000000000000000
+    Position.Y = 353.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Idle'
-    TabOrder = 36
+    TabOrder = 32
   end
   object imgIdle: TGlyph
     Position.X = 52.000000000000000000
-    Position.Y = 387.000000000000000000
+    Position.Y = 353.000000000000000000
     ImageIndex = 6
     Images = IL
   end
@@ -493,35 +488,6 @@ object frmMain: TfrmMain
     ImageIndex = 7
     Images = IL
   end
-  object edtYvault: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 29
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 297.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
-  object lblYvault: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 300.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'yVault v1'
-    TabOrder = 28
-  end
-  object imgYvault: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 300.000000000000000000
-    ImageIndex = 7
-    Images = IL
-  end
   object btnYearnV2: TButton
     Enabled = False
     Position.X = 376.000000000000000000
@@ -541,7 +507,6 @@ object frmMain: TfrmMain
       'Ooki'
       'Aave'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Idle'
       'Origin'
@@ -550,36 +515,6 @@ object frmMain: TfrmMain
     Position.X = 484.000000000000000000
     Position.Y = 229.000000000000000000
     TabOrder = 23
-    OnChange = cboProtoChange
-  end
-  object btnYvault: TButton
-    Enabled = False
-    Position.X = 376.000000000000000000
-    Position.Y = 297.000000000000000000
-    Size.Width = 100.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 30
-    Text = 'Transfer to'
-    OnClick = btnYvaultClick
-  end
-  object cboYvault: TComboBox
-    Enabled = False
-    Items.Strings = (
-      'Highest'
-      'Compound'
-      'Ooki'
-      'Aave'
-      'yEarn v2'
-      'yEarn v3'
-      'yVault v2'
-      'Idle'
-      'Origin'
-      'Wallet')
-    ItemIndex = 0
-    Position.X = 484.000000000000000000
-    Position.Y = 297.000000000000000000
-    TabOrder = 31
     OnChange = cboProtoChange
   end
   object imgWallet: TGlyph
@@ -635,7 +570,6 @@ object frmMain: TfrmMain
       'Ooki'
       'Aave'
       'yEarn v2'
-      'yVault'
       'yVault v2'
       'Idle'
       'Origin'
@@ -655,36 +589,35 @@ object frmMain: TfrmMain
       'Aave'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'Idle'
       'Origin'
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 331.000000000000000000
-    TabOrder = 35
+    Position.Y = 297.000000000000000000
+    TabOrder = 31
     OnChange = cboProtoChange
   end
   object btnYvaultV2: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 331.000000000000000000
+    Position.Y = 297.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 34
+    TabOrder = 30
     Text = 'Transfer to'
     OnClick = btnYvaultV2Click
   end
   object edtYvaultV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 33
+    TabOrder = 29
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
     KeyboardType = NumbersAndPunctuation
     Position.X = 268.000000000000000000
-    Position.Y = 331.000000000000000000
+    Position.Y = 297.000000000000000000
     Enabled = False
     OnChange = edtBalanceChange
   end
@@ -692,16 +625,16 @@ object frmMain: TfrmMain
     Enabled = False
     StyledSettings = [Family, Size, Style]
     Position.X = 88.000000000000000000
-    Position.Y = 334.000000000000000000
+    Position.Y = 300.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'yVault v2'
-    TabOrder = 32
+    TabOrder = 28
   end
   object imgYvaultV2: TGlyph
     Position.X = 52.000000000000000000
-    Position.Y = 334.000000000000000000
+    Position.Y = 300.000000000000000000
     ImageIndex = 7
     Images = IL
   end
@@ -714,28 +647,73 @@ object frmMain: TfrmMain
       'Aave'
       'yEarn v2'
       'yEarn v3'
-      'yVault'
       'yVault v2'
       'Idle'
       'Wallet')
     ItemIndex = 0
     Position.X = 484.000000000000000000
-    Position.Y = 418.000000000000000000
-    TabOrder = 43
+    Position.Y = 384.000000000000000000
+    TabOrder = 39
     OnChange = cboProtoChange
   end
   object btnOrigin: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 418.000000000000000000
+    Position.Y = 384.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 42
+    TabOrder = 38
     Text = 'Transfer to'
     OnClick = btnOriginClick
   end
   object edtOrigin: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 37
+    Cursor = crIBeam
+    Max = 9.999999843067494E17
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    Position.X = 268.000000000000000000
+    Position.Y = 384.000000000000000000
+    Enabled = False
+    OnChange = edtBalanceChange
+  end
+  object lblOrigin: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 387.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Origin'
+    TabOrder = 36
+  end
+  object imgOrigin: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 387.000000000000000000
+    ImageIndex = 8
+    Images = IL
+  end
+  object imgStable: TGlyph
+    Position.X = 52.000000000000000000
+    Position.Y = 421.000000000000000000
+    ImageIndex = 9
+    Images = IL
+  end
+  object lblStable: TLabel
+    Enabled = False
+    StyledSettings = [Family, Size, Style]
+    Position.X = 88.000000000000000000
+    Position.Y = 421.000000000000000000
+    Size.Width = 179.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'mStable'
+    TabOrder = 40
+  end
+  object edtStable: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 41
     Cursor = crIBeam
@@ -747,66 +725,20 @@ object frmMain: TfrmMain
     Enabled = False
     OnChange = edtBalanceChange
   end
-  object lblOrigin: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 421.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'Origin'
-    TabOrder = 40
-  end
-  object imgOrigin: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 421.000000000000000000
-    ImageIndex = 8
-    Images = IL
-  end
-  object imgStable: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 455.000000000000000000
-    ImageIndex = 9
-    Images = IL
-  end
-  object lblStable: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 455.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'mStable'
-    TabOrder = 44
-  end
-  object edtStable: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 45
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 452.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
   object btnStable: TButton
     Enabled = False
     Position.X = 376.000000000000000000
-    Position.Y = 452.000000000000000000
+    Position.Y = 418.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 46
+    TabOrder = 42
   end
   object cboStable: TComboBox
     Enabled = False
     Position.X = 484.000000000000000000
-    Position.Y = 452.000000000000000000
-    TabOrder = 47
+    Position.Y = 418.000000000000000000
+    TabOrder = 43
     OnChange = cboProtoChange
   end
   object IL: TImageList
@@ -1288,6 +1220,6 @@ object frmMain: TfrmMain
           end>
       end>
     Left = 28
-    Top = 496
+    Top = 456
   end
 end
