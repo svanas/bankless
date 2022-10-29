@@ -153,7 +153,6 @@ begin
   if not TFulcrum.Supports(client.Chain, reserve) then
     F.Value := -1
   else
-  begin
     TFulcrum.APY(client, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
@@ -166,7 +165,6 @@ begin
       else
         S.F.Value := -1;
     end);
-  end;
 
   if not TAave.Supports(client.Chain, reserve) then
     A.Value := -1
@@ -301,7 +299,7 @@ begin
         try
           while S.Queue.Length > 0 do
           begin
-            var callback := S.Queue.First;
+            const callback = S.Queue.First;
             try
               callback(S.C.Value, S.F.Value, S.A.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V2.Value, S.O.Value, S.M.Value, nil);
             finally
