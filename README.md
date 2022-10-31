@@ -16,7 +16,7 @@ Bankless is secure by design. Your crypto keys are not stored anywhere and they 
 
 ## Where can I download this app?
 
-You can download bankless for for [Windows](https://github.com/svanas/bankless/releases/latest/download/Windows.zip) or [macOS](https://github.com/svanas/bankless/releases/latest/download/macOS.zip).
+You can download bankless for [Windows](https://github.com/svanas/bankless/releases/latest/download/Windows.zip) or [macOS](https://github.com/svanas/bankless/releases/latest/download/macOS.zip).
 
 ## Is this app secure?
 
