@@ -35,7 +35,7 @@ This app does not sell you anything, and does not recommend any exchanges.
 
 1. Download and install [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter)
 2. Clone [Delphereum](https://github.com/svanas/delphereum) and the [dependencies](https://github.com/svanas/delphereum#dependencies)
-3. The compiler will stop at [bankless.api.key](https://github.com/svanas/bankless/blob/main/bankless.api.key)
+3. The compiler will stop at [bankless.api.key](https://github.com/svanas/bankless/blob/master/bankless.api.key)
 4. Enter your [Infura](https://infura.io) and [Alchemy](https://www.alchemy.com) and [Etherscan](https://docs.etherscan.io) and [ethgasstation.info](https://docs.ethgasstation.info) API keys.
 5. Should you decide to fork this repo, then do not commit your API keys. Your API keys are not to be shared.
 
