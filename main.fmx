@@ -4,7 +4,7 @@ object frmMain: TfrmMain
   ActiveControl = edtAddress
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = Single
-  Caption = 'Bankless Savings'
+  Caption = 'Bankless'
   ClientHeight = 494
   ClientWidth = 637
   FormFactor.Width = 320
@@ -327,7 +327,7 @@ object frmMain: TfrmMain
     Images = IL
   end
   object MM: TMainMenu
-    Top = 456
+    Top = 466
     object mnuNetwork: TMenuItem
       Text = 'Network'
     end
@@ -1220,6 +1220,6 @@ object frmMain: TfrmMain
           end>
       end>
     Left = 28
-    Top = 456
+    Top = 466
   end
 end
