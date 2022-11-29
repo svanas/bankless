@@ -690,7 +690,7 @@ begin
   if edtAddress.Text.Length = 0 then
     callback(EMPTY_ADDRESS, nil)
   else
-    TAddress.New(GetEthereum, edtAddress.Text, callback);
+    TAddress.Create(GetEthereum, edtAddress.Text, callback);
 end;
 
 function TfrmMain.GetAmount(box: TNumberBox; out amount: BigInteger): Boolean;
