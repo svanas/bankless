@@ -637,8 +637,6 @@ begin
         info.Speed := Low
       else
         info.Speed := Medium;
-
-    info.ApiKey := GAS_STATION_API_KEY;
   end;
 
   Result := client;
