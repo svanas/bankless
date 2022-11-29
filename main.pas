@@ -89,10 +89,6 @@ type
     imgAave: TGlyph;
     MM: TMainMenu;
     mnuNetwork: TMenuItem;
-    mnuGasPrice: TMenuItem;
-    mnuFast: TMenuItem;
-    mnuMedium: TMenuItem;
-    mnuLow: TMenuItem;
     edtIdle: TNumberBox;
     btnIdle: TButton;
     cboIdle: TComboBox;
@@ -626,17 +622,6 @@ begin
   client.OnEtherscanApiKey := procedure(var apiKey: string)
   begin
     apiKey := ETHERSCAN_API_KEY;
-  end;
-
-  client.OnGasStationInfo := procedure(var info: TGasStationInfo)
-  begin
-    if mnuFast.IsChecked then
-      info.Speed := Fast
-    else
-      if mnuLow.IsChecked then
-        info.Speed := Low
-      else
-        info.Speed := Medium;
   end;
 
   Result := client;

@@ -331,31 +331,6 @@ object frmMain: TfrmMain
     object mnuNetwork: TMenuItem
       Text = 'Network'
     end
-    object mnuGasPrice: TMenuItem
-      Text = 'Gas price'
-      object mnuFast: TMenuItem
-        Locked = True
-        AutoCheck = True
-        GroupIndex = 1
-        RadioItem = True
-        Text = 'Fast'
-      end
-      object mnuMedium: TMenuItem
-        Locked = True
-        AutoCheck = True
-        GroupIndex = 1
-        RadioItem = True
-        IsChecked = True
-        Text = 'Medium'
-      end
-      object mnuLow: TMenuItem
-        Locked = True
-        AutoCheck = True
-        GroupIndex = 1
-        RadioItem = True
-        Text = 'Low'
-      end
-    end
     object mnuPeriod: TMenuItem
       Text = 'Sampled period'
       object mnuOneDay: TMenuItem
