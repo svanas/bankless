@@ -6,6 +6,7 @@ uses
   // web3
   web3,
   web3.eth.defi,
+  web3.eth.etherscan,
   web3.sync;
 
 // C  == Compound
@@ -41,7 +42,7 @@ type
     C, F, A, I, Y2, Y3, V2, O, M: TAPYItem;
   public
     procedure Clear;
-    procedure Get(client: IWeb3; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
+    procedure Get(client: IWeb3; etherscan: IEtherscan; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
   end;
 
 implementation
@@ -100,10 +101,11 @@ begin
 end;
 
 procedure TAPYCache.Get(
-  client  : IWeb3;
-  reserve : TReserve;
-  period  : TPeriod;
-  callback: TAsyncAPYs);
+  client   : IWeb3;
+  etherscan: IEtherscan;
+  reserve  : TReserve;
+  period   : TPeriod;
+  callback : TAsyncAPYs);
 type
   PAPYCache = ^TAPYCache;
 var
@@ -137,7 +139,7 @@ begin
   if not TCompound.Supports(client.Chain, reserve) then
     C.Value := -1
   else
-    TCompound.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TCompound.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -153,7 +155,7 @@ begin
   if not TFulcrum.Supports(client.Chain, reserve) then
     F.Value := -1
   else
-    TFulcrum.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TFulcrum.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -169,7 +171,7 @@ begin
   if not TAave.Supports(client.Chain, reserve) then
     A.Value := -1
   else
-    TAave.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TAave.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -185,7 +187,7 @@ begin
   if not TIdle.Supports(client.Chain, reserve) then
     I.Value := -1
   else
-    TIdle.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TIdle.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -201,7 +203,7 @@ begin
   if not TyEarnV2.Supports(client.Chain, reserve) then
     Y2.Value := -1
   else
-    TyEarnV2.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TyEarnV2.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -217,7 +219,7 @@ begin
   if not TyEarnV3.Supports(client.Chain, reserve) then
     Y3.Value := -1
   else
-    TyEarnV3.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TyEarnV3.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -233,7 +235,7 @@ begin
   if not TyVaultV2.Supports(client.Chain, reserve) then
     V2.Value := -1
   else
-    TyVaultV2.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TyVaultV2.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -249,7 +251,7 @@ begin
   if not TOrigin.Supports(client.Chain, reserve) then
     O.Value := -1
   else
-    TOrigin.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TOrigin.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -265,7 +267,7 @@ begin
   if not TmStable.Supports(client.Chain, reserve) then
     M.Value := -1
   else
-    TmStable.APY(client, reserve, period, procedure(value: Double; err: IError)
+    TmStable.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
     begin
       if Assigned(err) then
       begin

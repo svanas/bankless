@@ -26,6 +26,7 @@ uses
   // web3
   web3,
   web3.eth.defi,
+  web3.eth.etherscan,
   web3.eth.types,
   // Project
   apyCache;
@@ -150,19 +151,20 @@ type
   private
     FLockCount: Integer;
     FCurrIndex: Integer;
+    FEtherscan: IEtherscan;
     procedure LockUI;
     procedure UnLockUI;
     function  Locked: Boolean;
     procedure InitUI;
     procedure UpdateUI;
     procedure HourGlass;
+    function  Etherscan: IEtherscan;
     procedure UpdateSum(onExit: TProc);
     procedure UpdateAPY(onExit: TProc);
     procedure UpdateBalance(onExit: TProc);
     function  GetChain: TChain;
     function  GetClient: IWeb3; overload;
     function  GetClient(provider: TProvider): IWeb3; overload;
-    function  GetClient(chain: TChain): IWeb3; overload;
     function  GetEthereum: IWeb3;
     function  GetPeriod: TPeriod;
     procedure NetworkClick(Sender: TObject);
@@ -610,26 +612,14 @@ function TfrmMain.GetClient(provider: TProvider): IWeb3;
 begin
   const chain = Self.GetChain;
   if provider = Infura then
-    Result := GetClient(chain.SetGateway(HTTPS, web3.eth.infura.endpoint(chain, INFURA_PROJECT_ID).Value))
+    Result := TWeb3.Create(chain.SetGateway(HTTPS, web3.eth.infura.endpoint(chain, INFURA_PROJECT_ID).Value))
   else
-    Result := GetClient(chain.SetGateway(HTTPS, web3.eth.alchemy.endpoint(chain, ALCHEMY_PROJECT_ID).Value));
-end;
-
-function TfrmMain.GetClient(chain: TChain): IWeb3;
-begin
-  var client := TWeb3.Create(chain);
-
-  client.OnEtherscanApiKey := procedure(var apiKey: string)
-  begin
-    apiKey := ETHERSCAN_API_KEY;
-  end;
-
-  Result := client;
+    Result := TWeb3.Create(chain.SetGateway(HTTPS, web3.eth.alchemy.endpoint(chain, ALCHEMY_PROJECT_ID).Value));
 end;
 
 function TfrmMain.GetEthereum: IWeb3;
 begin
-  Result := GetClient(Ethereum.SetGateway(HTTPS, web3.eth.infura.endpoint(Ethereum, INFURA_PROJECT_ID).Value));
+  Result := TWeb3.Create(Ethereum.SetGateway(HTTPS, web3.eth.infura.endpoint(Ethereum, INFURA_PROJECT_ID).Value));
 end;
 
 function TfrmMain.GetPeriod: TPeriod;
@@ -809,6 +799,13 @@ begin
   Self.MouseMove([], -1, -1);
 end;
 
+function TfrmMain.Etherscan: IEtherscan;
+begin
+  if not Assigned(FEtherscan) then
+    FEtherscan := web3.eth.etherscan.create(Self.GetChain, ETHERSCAN_API_KEY);
+  Result := FEtherscan;
+end;
+
 procedure TfrmMain.UpdateUI;
 begin
   Self.HourGlass;
@@ -967,7 +964,7 @@ begin
     group.lbl.Enabled := True;
   end;
 
-  apyCache[aReserve.Value, aPeriod].Get(aClient, aReserve.Value, aPeriod,
+  apyCache[aReserve.Value, aPeriod].Get(aClient, Etherscan, aReserve.Value, aPeriod,
     procedure(C, F, A, I, Y2, Y3, V2, O, M: Double; err: IError)
     begin
       if Assigned(err) then
@@ -1334,7 +1331,7 @@ procedure TfrmMain.GetHighest(
   period  : TPeriod;
   callback: TProc<TLendingProtocolClass, IError>);
 begin
-  apyCache[reserve, period].Get(GetClient(Alchemy), reserve, period,
+  apyCache[reserve, period].Get(GetClient(Alchemy), Etherscan, reserve, period,
     procedure(C, F, A, I, Y2, Y3, V2, O, M: Double; err: IError)
     begin
       if Assigned(err) then
