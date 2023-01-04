@@ -29,14 +29,14 @@ You will need...
 2. some ETH in your Ethereum wallet, because you will need to pay the network for gas if you want to make any transactions.
 3. a stablecoin in your Ethereum wallet, for example: DAI or USDC or USDT
 
-This app does not sell you anything, and does not recommend any exchanges.
+This app does not sell you anything, and does not recommend any crypto exchanges. Do your own research.
 
 ## How can I compile this app?
 
 1. Download and install [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter)
 2. Clone [Delphereum](https://github.com/svanas/delphereum) and the [dependencies](https://github.com/svanas/delphereum#dependencies)
 3. The compiler will stop at [bankless.api.key](https://github.com/svanas/bankless/blob/master/bankless.api.key)
-4. Enter your [Infura](https://infura.io) and [Alchemy](https://www.alchemy.com) and [Etherscan](https://docs.etherscan.io) and [ethgasstation.info](https://docs.ethgasstation.info) API keys.
+4. Enter your [Infura](https://infura.io) and [Alchemy](https://www.alchemy.com) and [Etherscan](https://docs.etherscan.io) API keys.
 5. Should you decide to fork this repo, then do not commit your API keys. Your API keys are not to be shared.
 
 ## Disclaimer
