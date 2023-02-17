@@ -612,14 +612,14 @@ function TfrmMain.GetClient(provider: TProvider): IWeb3;
 begin
   const chain = Self.GetChain;
   if provider = Infura then
-    Result := TWeb3.Create(chain.SetGateway(HTTPS, web3.eth.infura.endpoint(chain, INFURA_PROJECT_ID).Value))
+    Result := TWeb3.Create(chain.SetRPC(HTTPS, web3.eth.infura.endpoint(chain, INFURA_PROJECT_ID).Value))
   else
-    Result := TWeb3.Create(chain.SetGateway(HTTPS, web3.eth.alchemy.endpoint(chain, ALCHEMY_PROJECT_ID).Value));
+    Result := TWeb3.Create(chain.SetRPC(HTTPS, web3.eth.alchemy.endpoint(chain, ALCHEMY_PROJECT_ID).Value));
 end;
 
 function TfrmMain.GetEthereum: IWeb3;
 begin
-  Result := TWeb3.Create(Ethereum.SetGateway(HTTPS, web3.eth.infura.endpoint(Ethereum, INFURA_PROJECT_ID).Value));
+  Result := TWeb3.Create(Ethereum.SetRPC(HTTPS, web3.eth.infura.endpoint(Ethereum, INFURA_PROJECT_ID).Value));
 end;
 
 function TfrmMain.GetPeriod: TPeriod;
