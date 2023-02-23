@@ -514,7 +514,7 @@ begin
   for var I := 0 to Pred(mnuNetwork.ItemsCount) do
   begin
     const that = web3.Chain(mnuNetwork.Items[I].Tag);
-    mnuNetwork.Items[I].IsChecked := that.IsOk and (that.Value^ = this);
+    mnuNetwork.Items[I].IsChecked := that.isOk and (that.Value^ = this);
   end;
 
   UpdateUI;
@@ -594,7 +594,7 @@ begin
   if (I > -1) and (I < cboChain.Count) then
   begin
     const chain = web3.Chain(UInt32(cboChain.Items.Objects[I]));
-    if chain.IsOk then
+    if chain.isOk then
     begin
       Result := chain.Value^;
       EXIT;
@@ -673,7 +673,7 @@ begin
   if Assigned(box) and (box.Tag = TAG_CHANGED) then
   begin
     const R = GetReserve;
-    if R.IsOk then
+    if R.isOk then
     begin
       amount := R.Value.Scale(box.Value);
       Result := amount > 0;
@@ -740,7 +740,7 @@ begin
     EXIT;
   TMenuItem(Sender).IsChecked := True;
   const C = web3.Chain(TMenuItem(Sender).Tag);
-  if C.IsOk then
+  if C.isOk then
     cboChain.ItemIndex := cboChain.Items.IndexOfObject(TObject(C.Value^.Id));
 end;
 
@@ -824,11 +824,15 @@ begin
       end);
   end;
 
-  const reserve = GetReserve;
-  if reserve.IsOk then
-    imgWallet.ImageIndex := GetImageIndex(reserve.Value)
-  else
-    imgWallet.ImageIndex := -1;
+  GetReserve
+    .ifOk(procedure(reserve: TReserve)
+    begin
+      imgWallet.ImageIndex := GetImageIndex(reserve)
+    end)
+    .&else(procedure(_: IError)
+    begin
+      imgWallet.ImageIndex := -1
+    end);
 
   UpdateSum(procedure
   begin
@@ -940,7 +944,7 @@ begin
   const aPeriod = GetPeriod;
 
   const aReserve = GetReserve;
-  if aReserve.IsErr then
+  if aReserve.isErr then
   begin
     if Assigned(onExit) then onExit;
     EXIT;
@@ -1048,7 +1052,7 @@ begin
   const aPeriod = GetPeriod;
 
   const aReserve = GetReserve;
-  if aReserve.IsErr then
+  if aReserve.isErr then
   begin
     if Assigned(onExit) then onExit;
     EXIT;
@@ -1524,7 +1528,7 @@ begin
   const aPeriod = GetPeriod;
 
   const aReserve = GetReserve;
-  if aReserve.IsErr then
+  if aReserve.isErr then
     EXIT;
 
   ux.Enabled := False;
@@ -1640,7 +1644,7 @@ begin
       end;
 
       const &private = TPrivateKey.Prompt(&public);
-      if &private.IsErr then
+      if &private.isErr then
       begin
         if Supports(&private.Error, ICancelled) then
           { nothing }
@@ -1675,7 +1679,7 @@ begin
   const aPeriod = GetPeriod;
 
   const aReserve = GetReserve;
-  if aReserve.IsErr then
+  if aReserve.isErr then
     EXIT;
 
   ux.Enabled := False;
@@ -1813,7 +1817,7 @@ begin
       end;
 
       const &private = TPrivateKey.Prompt(&public);
-      if &private.IsErr then
+      if &private.isErr then
       begin
         if Supports(&private.Error, ICancelled) then
           { nothing }
