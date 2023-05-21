@@ -125,11 +125,6 @@ type
     rctLendingProtocols: TRectangle;
     rctYearn: TRectangle;
     rctYieldAggregators: TRectangle;
-    imgStable: TGlyph;
-    lblStable: TLabel;
-    edtStable: TNumberBox;
-    btnStable: TButton;
-    cboStable: TComboBox;
     mnuTwoWeeks: TMenuItem;
     procedure cboChainChange(Sender: TObject);
     procedure cboCurrencyChange(Sender: TObject);
@@ -229,7 +224,6 @@ uses
   web3.eth.fulcrum,
   web3.eth.idle.finance.v4,
   web3.eth.infura,
-  web3.eth.mstable.save.v2,
   web3.eth.origin.dollar,
   web3.eth.tx,
   web3.eth.yearn.finance.v2,
@@ -540,8 +534,6 @@ procedure TfrmMain.cboProtoChange(Sender: TObject);
       Result := btnYvaultV2
     else if Sender = cboOrigin then
       Result := btnOrigin
-    else if Sender = cboStable then
-      Result := btnStable
     else
       Result := nil;
   end;
@@ -614,7 +606,7 @@ begin
   if provider = Infura then
     Result := TWeb3.Create(chain.SetRPC(HTTPS, web3.eth.infura.endpoint(chain, INFURA_PROJECT_ID).Value))
   else
-    Result := TWeb3.Create(chain.SetRPC(HTTPS, web3.eth.alchemy.endpoint(chain, ALCHEMY_PROJECT_ID).Value));
+    Result := TWeb3.Create(chain.SetRPC(HTTPS, web3.eth.alchemy.endpoint(chain, ALCHEMY_PROJECT_ID, core).Value));
 end;
 
 function TfrmMain.GetEthereum: IWeb3;
@@ -717,8 +709,6 @@ begin
     Result := TyVaultV2
   else if SameText(aName, TOrigin.Name) then
     Result := TOrigin
-  else if SameText(aName, TmStable.Name) then
-    Result := TmStable
   else
     Result := nil; // highest (or withdraw)
 end;
@@ -969,7 +959,7 @@ begin
   end;
 
   apyCache[aReserve.Value, aPeriod].Get(aClient, Etherscan, aReserve.Value, aPeriod,
-    procedure(C, F, A, I, Y2, Y3, V2, O, M: Double; err: IError)
+    procedure(C, F, A, I, Y2, Y3, V2, O: Double; err: IError)
     begin
       if Assigned(err) then
       begin
@@ -1012,10 +1002,6 @@ begin
           disable(TOrigin)
         else
           enable(TOrigin, #32#32 + #9#9, O);
-        if M = -1 then
-          disable(TmStable)
-        else
-          enable(TmStable, #9#9, M);
       end);
 
       if Assigned(onExit) then onExit;
@@ -1039,9 +1025,7 @@ begin
   else if proto = TyVaultV2 then
     Result := TLendingProtocolGroup.Create(imgYvaultV2, lblYvaultV2, edtYvaultV2, btnYvaultV2, cboYvaultV2)
   else if proto = TOrigin then
-    Result := TLendingProtocolGroup.Create(imgOrigin, lblOrigin, edtOrigin, btnOrigin, cboOrigin)
-  else if proto = TmStable then
-    Result := TLendingProtocolGroup.Create(imgStable, lblStable, edtStable, nil, nil);
+    Result := TLendingProtocolGroup.Create(imgOrigin, lblOrigin, edtOrigin, btnOrigin, cboOrigin);
 end;
 
 procedure TfrmMain.UpdateBalance(onExit: TProc);
@@ -1118,7 +1102,7 @@ begin
   begin
     aHighest := highest;
 
-    var W, C, F, A, I, Y2, Y3, V2, O, M: Boolean;
+    var W, C, F, A, I, Y2, Y3, V2, O: Boolean;
 
     GetAddress(procedure(aAddress: TAddress; err: IError)
     begin
@@ -1292,24 +1276,6 @@ begin
             enable(TOrigin, value, aHighest = TOrigin);
           end);
         end);
-
-      if not TmStable.Supports(aClient.Chain, aReserve.Value) then
-      begin
-        M := True;
-        TThread.Synchronize(nil, procedure
-        begin
-          disable(TmStable, aHighest = TmStable);
-        end);
-      end
-      else
-        TmStable.Balance(aClient, aAddress, aReserve.Value, procedure(value: BigInteger; err: IError)
-        begin
-          M := True;
-          TThread.Synchronize(nil, procedure
-          begin
-            enable(TmStable, value, aHighest = TmStable);
-          end);
-        end);
     end);
 
     if Assigned(onExit) then
@@ -1320,7 +1286,7 @@ begin
           try
             TTask.CurrentTask.Wait(250);
           except end;
-          if W and C and F and A and I and Y2 and Y3 and V2 and O and M then
+          if W and C and F and A and I and Y2 and Y3 and V2 and O then
           begin
             onExit;
             EXIT;
@@ -1336,34 +1302,32 @@ procedure TfrmMain.GetHighest(
   callback: TProc<TLendingProtocolClass, IError>);
 begin
   apyCache[reserve, period].Get(GetClient(Alchemy), Etherscan, reserve, period,
-    procedure(C, F, A, I, Y2, Y3, V2, O, M: Double; err: IError)
+    procedure(C, F, A, I, Y2, Y3, V2, O: Double; err: IError)
     begin
       if Assigned(err) then
         callback(nil, err)
-      else if Highest(C, [F, A, I, Y2, Y3, V2, O, M]) then
+      else if Highest(C, [F, A, I, Y2, Y3, V2, O]) then
         callback(TCompound, nil)
-      else if Highest(F, [C, A, I, Y2, Y3, V2, O, M]) then
+      else if Highest(F, [C, A, I, Y2, Y3, V2, O]) then
         callback(TFulcrum, nil)
-      else if Highest(A, [C, F, I, Y2, Y3, V2, O, M]) then
+      else if Highest(A, [C, F, I, Y2, Y3, V2, O]) then
         callback(TAave, nil)
-      else if Highest(I, [C, F, A, Y2, Y3, V2, O, M]) then
+      else if Highest(I, [C, F, A, Y2, Y3, V2, O]) then
         callback(TIdle, nil)
-      else if Highest(Y2, [C, F, A, I, Y3, V2, O, M]) then
+      else if Highest(Y2, [C, F, A, I, Y3, V2, O]) then
         callback(TyEarnV2, nil)
-      else if Highest(Y3, [C, F, A, I, Y2, V2, O, M]) then
+      else if Highest(Y3, [C, F, A, I, Y2, V2, O]) then
         callback(TyEarnV3, nil)
-      else if Highest(V2, [C, F, A, I, Y2, Y3, O, M]) then
+      else if Highest(V2, [C, F, A, I, Y2, Y3, O]) then
         callback(TyVaultV2, nil)
-      else if Highest(O, [C, F, A, I, Y2, Y3, V2, M]) then
-        callback(TOrigin, nil)
-      else if Highest(M, [C, F, A, I, Y2, Y3, V2, O]) then
-        callback(TmStable, nil);
+      else if Highest(O, [C, F, A, I, Y2, Y3, V2]) then
+        callback(TOrigin, nil);
     end);
 end;
 
 procedure TfrmMain.Sum(client: IWeb3; owner: TAddress; reserve: TReserve; callback: TProc<TReserve, BigInteger>);
 begin
-  var W, C, F, A, I, Y2, Y3, V2, O, M: BigInteger;
+  var W, C, F, A, I, Y2, Y3, V2, O: BigInteger;
 
   reserve.BalanceOf(client, owner, procedure(value: BigInteger; err: IError)
   begin
@@ -1461,17 +1425,6 @@ begin
         O := -1;
     end);
 
-  if not TmStable.Supports(client.Chain, reserve) then
-    M := -1
-  else
-    TmStable.Balance(client, owner, reserve, procedure(value: BigInteger; err: IError)
-    begin
-      if value > 0 then
-        M := value
-      else
-        M := -1;
-    end);
-
   TTask.Create(procedure
   begin
     var output: BigInteger;
@@ -1488,8 +1441,7 @@ begin
       and ((Y2 = -1) or (Y2 > 0))
       and ((Y3 = -1) or (Y3 > 0))
       and ((V2 = -1) or (V2 > 0))
-      and ((O = -1)  or (O > 0))
-      and ((M = -1)  or (M > 0)) then
+      and ((O = -1)  or (O > 0)) then
       begin
         output := 0;
         if W > 0 then
@@ -1510,8 +1462,6 @@ begin
           output := output + V2;
         if O > 0 then
           output := output + O;
-        if M > 0 then
-          output := output + M;
         callback(reserve, output);
         EXIT;
       end;

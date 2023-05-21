@@ -17,10 +17,9 @@ uses
 // Y3 == Yearn earn v3
 // V2 == Yearn vault v2
 // O  == Origin Dollar
-// M  == mStable
 
 type
-  TAsyncAPYs = reference to procedure(C, F, A, I, Y2, Y3, V2, O, M: Double; err: IError);
+  TAsyncAPYs = reference to procedure(C, F, A, I, Y2, Y3, V2, O: Double; err: IError);
 
 type
   TAPYItem = record
@@ -39,7 +38,7 @@ type
     FQueue: ICriticalQueue<TAsyncAPYs>;
     function Queue: ICriticalQueue<TAsyncAPYs>;
   private
-    C, F, A, I, Y2, Y3, V2, O, M: TAPYItem;
+    C, F, A, I, Y2, Y3, V2, O: TAPYItem;
   public
     procedure Clear;
     procedure Get(client: IWeb3; etherscan: IEtherscan; reserve: TReserve; period: TPeriod; callback: TAsyncAPYs);
@@ -58,7 +57,6 @@ uses
   web3.eth.compound,
   web3.eth.fulcrum,
   web3.eth.idle.finance.v4,
-  web3.eth.mstable.save.v2,
   web3.eth.origin.dollar,
   web3.eth.yearn.finance.v2,
   web3.eth.yearn.finance.v3,
@@ -90,7 +88,6 @@ begin
   Y3.Clear;
   V2.Clear;
   O.Clear;
-  M.Clear;
 end;
 
 function TAPYCache.Queue: ICriticalQueue<TAsyncAPYs>;
@@ -118,10 +115,9 @@ begin
   and (Y2.Ready)
   and (Y3.Ready)
   and (V2.Ready)
-  and (O.Ready)
-  and (M.Ready) then
+  and (O.Ready) then
   begin
-    callback(C.Value, F.Value, A.Value, I.Value, Y2.Value, Y3.Value, V2.Value, O.Value, M.Value, nil);
+    callback(C.Value, F.Value, A.Value, I.Value, Y2.Value, Y3.Value, V2.Value, O.Value, nil);
     EXIT;
   end;
 
@@ -143,7 +139,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -159,7 +155,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -175,7 +171,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -191,7 +187,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -207,7 +203,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -223,7 +219,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -239,7 +235,7 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
@@ -255,29 +251,13 @@ begin
     begin
       if Assigned(err) then
       begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
+        callback(0, 0, 0, 0, 0, 0, 0, 0, err);
         EXIT;
       end;
       if not IsNAN(value) then
         S.O.Value := value
       else
         S.O.Value := -1;
-    end);
-
-  if not TmStable.Supports(client.Chain, reserve) then
-    M.Value := -1
-  else
-    TmStable.APY(client, etherscan, reserve, period, procedure(value: Double; err: IError)
-    begin
-      if Assigned(err) then
-      begin
-        callback(0, 0, 0, 0, 0, 0, 0, 0, 0, err);
-        EXIT;
-      end;
-      if not IsNAN(value) then
-        S.M.Value := value
-      else
-        S.M.Value := -1;
     end);
 
   TTask.Create(procedure
@@ -294,8 +274,7 @@ begin
       and (S.Y2.Ready)
       and (S.Y3.Ready)
       and (S.V2.Ready)
-      and (S.O.Ready)
-      and (S.M.Ready) then
+      and (S.O.Ready) then
       begin
         S.Queue.Enter;
         try
@@ -303,7 +282,7 @@ begin
           begin
             const callback = S.Queue.First;
             try
-              callback(S.C.Value, S.F.Value, S.A.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V2.Value, S.O.Value, S.M.Value, nil);
+              callback(S.C.Value, S.F.Value, S.A.Value, S.I.Value, S.Y2.Value, S.Y3.Value, S.V2.Value, S.O.Value, nil);
             finally
               S.Queue.Delete(0, 1);
             end;

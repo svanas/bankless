@@ -5,7 +5,7 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = Single
   Caption = 'Bankless'
-  ClientHeight = 494
+  ClientHeight = 460
   ClientWidth = 637
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -16,7 +16,7 @@ object frmMain: TfrmMain
     Position.X = 40.000000000000000000
     Position.Y = 340.000000000000000000
     Size.Width = 557.000000000000000000
-    Size.Height = 110.000000000000000000
+    Size.Height = 76.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claSilver
     XRadius = 10.000000000000000000
@@ -57,7 +57,7 @@ object frmMain: TfrmMain
   end
   object edtAddress: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 1
+    TabOrder = 8
     Position.X = 88.000000000000000000
     Position.Y = 12.000000000000000000
     Size.Width = 280.000000000000000000
@@ -82,7 +82,7 @@ object frmMain: TfrmMain
     Size.Width = 145.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 3
+    TabOrder = 12
     OnChange = cboCurrencyChange
     OnPopup = cboCurrencyPopup
   end
@@ -95,7 +95,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Compound'
-    TabOrder = 8
+    TabOrder = 21
   end
   object cboChain: TComboBox
     Position.X = 376.000000000000000000
@@ -112,7 +112,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Ooki'
-    TabOrder = 12
+    TabOrder = 42
   end
   object lblAave: TLabel
     Enabled = False
@@ -123,11 +123,11 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Aave'
-    TabOrder = 16
+    TabOrder = 56
   end
   object edtCompound: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 9
+    TabOrder = 17
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -139,7 +139,7 @@ object frmMain: TfrmMain
   end
   object edtFulcrum: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 13
+    TabOrder = 40
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -151,7 +151,7 @@ object frmMain: TfrmMain
   end
   object edtAave: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 17
+    TabOrder = 50
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -168,7 +168,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 10
+    TabOrder = 18
     Text = 'Transfer to'
     OnClick = btnCompoundClick
   end
@@ -179,7 +179,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 14
+    TabOrder = 30
     Text = 'Transfer to'
     OnClick = btnFulcrumClick
   end
@@ -190,17 +190,17 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 18
+    TabOrder = 48
     Text = 'Transfer to'
     OnClick = btnAaveClick
   end
   object btnRefresh: TButton
     Position.X = 268.000000000000000000
-    Position.Y = 461.000000000000000000
+    Position.Y = 427.000000000000000000
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 44
+    TabOrder = 80
     Text = 'Refresh'
     OnClick = btnRefreshClick
   end
@@ -219,7 +219,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 108.000000000000000000
-    TabOrder = 11
+    TabOrder = 19
     OnChange = cboProtoChange
   end
   object cboFulcrum: TComboBox
@@ -237,7 +237,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 142.000000000000000000
-    TabOrder = 15
+    TabOrder = 25
     OnChange = cboProtoChange
   end
   object cboAave: TComboBox
@@ -255,7 +255,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 176.000000000000000000
-    TabOrder = 19
+    TabOrder = 45
     OnChange = cboProtoChange
   end
   object lblWallet: TLabel
@@ -295,7 +295,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 55.000000000000000000
-    TabOrder = 7
+    TabOrder = 9
   end
   object btnWallet: TButton
     Enabled = False
@@ -327,7 +327,7 @@ object frmMain: TfrmMain
     Images = IL
   end
   object MM: TMainMenu
-    Top = 466
+    Top = 434
     object mnuNetwork: TMenuItem
       Text = 'Network'
     end
@@ -378,7 +378,7 @@ object frmMain: TfrmMain
   end
   object edtIdle: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 33
+    TabOrder = 59
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -395,7 +395,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 34
+    TabOrder = 60
     Text = 'Transfer to'
     OnClick = btnIdleClick
   end
@@ -414,7 +414,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 350.000000000000000000
-    TabOrder = 35
+    TabOrder = 61
     OnChange = cboProtoChange
   end
   object lblIdle: TLabel
@@ -426,7 +426,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Idle'
-    TabOrder = 32
+    TabOrder = 58
   end
   object imgIdle: TGlyph
     Position.X = 52.000000000000000000
@@ -436,7 +436,7 @@ object frmMain: TfrmMain
   end
   object edtYearnV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 21
+    TabOrder = 29
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -499,7 +499,7 @@ object frmMain: TfrmMain
   end
   object edtYearnV3: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 25
+    TabOrder = 32
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -570,7 +570,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 297.000000000000000000
-    TabOrder = 31
+    TabOrder = 35
     OnChange = cboProtoChange
   end
   object btnYvaultV2: TButton
@@ -580,13 +580,13 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 30
+    TabOrder = 33
     Text = 'Transfer to'
     OnClick = btnYvaultV2Click
   end
   object edtYvaultV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 29
+    TabOrder = 31
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -628,7 +628,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 384.000000000000000000
-    TabOrder = 39
+    TabOrder = 47
     OnChange = cboProtoChange
   end
   object btnOrigin: TButton
@@ -638,13 +638,13 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 38
+    TabOrder = 44
     Text = 'Transfer to'
     OnClick = btnOriginClick
   end
   object edtOrigin: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 37
+    TabOrder = 38
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -670,51 +670,6 @@ object frmMain: TfrmMain
     Position.Y = 387.000000000000000000
     ImageIndex = 8
     Images = IL
-  end
-  object imgStable: TGlyph
-    Position.X = 52.000000000000000000
-    Position.Y = 421.000000000000000000
-    ImageIndex = 9
-    Images = IL
-  end
-  object lblStable: TLabel
-    Enabled = False
-    StyledSettings = [Family, Size, Style]
-    Position.X = 88.000000000000000000
-    Position.Y = 421.000000000000000000
-    Size.Width = 179.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'mStable'
-    TabOrder = 40
-  end
-  object edtStable: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 41
-    Cursor = crIBeam
-    Max = 9.999999843067494E17
-    ValueType = Float
-    KeyboardType = NumbersAndPunctuation
-    Position.X = 268.000000000000000000
-    Position.Y = 418.000000000000000000
-    Enabled = False
-    OnChange = edtBalanceChange
-  end
-  object btnStable: TButton
-    Enabled = False
-    Position.X = 376.000000000000000000
-    Position.Y = 418.000000000000000000
-    Size.Width = 100.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 42
-  end
-  object cboStable: TComboBox
-    Enabled = False
-    Position.X = 484.000000000000000000
-    Position.Y = 418.000000000000000000
-    TabOrder = 43
-    OnChange = cboProtoChange
   end
   object IL: TImageList
     Source = <
@@ -1078,30 +1033,6 @@ object frmMain: TfrmMain
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              018749444154384F7DD3B14B02511C07F0DF9DE0E1202838B76893B8046E0685
-              0D11D9E01878419334F707381F2E4E2D36341D0416AD114ED5983A38B418410A
-              6620E41098F8EBFBBBCEE32E5F7EE18377BFF77BDC7BE73B8DD4D9831D5807E9
-              7981265CC3CA6CC213F03F9E611F9431413549E51402D980A546CBB2B852A92C
-              D55DBBE045F6E80DC66231EE743A3C180C58321A8DD8300CFF64F1093A382F2B
-              3098C9649C89AD568BCBE5329BA6C9BAAE077A5C474067BE82A7502870B7DBE5
-              F178CCD56A95A3D1E8520F5C02DDFA0A8E743ACDF57A9D8BC522DBB6EDAC269F
-              CF077A5C0F4077BE8223914870AFD77326CA0A1A8D06472291408FEB11E8DC57
-              08C8E5729CCD669563AE2B3965077003944C2629954AD16C36A3E9744A783A69
-              9A46F1789CC2E1308542216AB7DB341C0EA55D72E2FED23B70AD567396BD2AA5
-              5269F1F46F3016DFC23634B17712F3F9FCB7FA27F82BA9DFEFD3643291DB43B0
-              E56211399EFEFDAD628132457805D524F101C7E045F5394B4D4ED816AC811CD7
-              37B8870BF80237443F693E0B37012C74AC0000000049454E44AE426082}
-          end>
-        Name = 'MUSD'
-      end
-      item
-        MultiResBitmap = <
-          item
-            Width = 16
-            Height = 16
-            PNG = {
-              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
               029A49444154384F85525F48935114FFDDBBAD6DC8D0D26AE19F08A6B4309D13
               A988690E223313F15122241FACA8079FC44825B5B23F5454543E84F510E19362
               50FA5262E02C75CEF9672A6929299A8AAD08736EDFEDBB775F9B06D20F3EBEF3
@@ -1185,16 +1116,10 @@ object frmMain: TfrmMain
       item
         Layers = <
           item
-            Name = 'mUSD'
-          end>
-      end
-      item
-        Layers = <
-          item
             Name = 'TUSD'
           end>
       end>
     Left = 28
-    Top = 466
+    Top = 434
   end
 end
