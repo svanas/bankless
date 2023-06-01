@@ -653,9 +653,9 @@ end;
 procedure TfrmMain.GetAddress(callback: TProc<TAddress, IError>);
 begin
   if edtAddress.Text.Length = 0 then
-    callback(EMPTY_ADDRESS, nil)
+    callback(TAddress.Zero, nil)
   else
-    TAddress.Create(GetEthereum, edtAddress.Text, callback);
+    TAddress.FromName(GetEthereum, edtAddress.Text, callback);
 end;
 
 function TfrmMain.GetAmount(box: TNumberBox; out amount: BigInteger): Boolean;
