@@ -766,13 +766,30 @@ begin
       cboChain.Enabled := cboChain.Items.Count > 1;
 
       for var R := System.Low(TReserve) to High(TReserve) do
+      begin
         cboCurrency.Items.AddObject('$' + R.Symbol, TObject(R));
+        with cboCurrency do with ListItems[Pred(Items.Count)] do
+        begin
+          Font.Family    := 'Courier New';
+          StyledSettings := [TStyledSetting.Size, TStyledSetting.Style];
+         end;
+       end;
 
-      cboCurrency.Items.AddObject('――――――――― +', TObject(-1));
-      cboCurrency.ListItems[Pred(cboCurrency.Items.Count)].Selectable := False;
+      cboCurrency.Items.AddObject('―――――――――――――― +', TObject(-1));
+      with cboCurrency do with ListItems[Pred(Items.Count)] do
+      begin
+        Selectable     := False;
+        Font.Family    := 'Courier New';
+        StyledSettings := [TStyledSetting.Size, TStyledSetting.Style];
+      end;
 
       cboCurrency.Items.AddObject(USD, TObject(-1));
-      cboCurrency.ListItems[Pred(cboCurrency.Items.Count)].Selectable := False;
+      with cboCurrency do with ListItems[Pred(Items.Count)] do
+      begin
+        Selectable     := False;
+        Font.Family    := 'Courier New';
+        StyledSettings := [TStyledSetting.Size, TStyledSetting.Style];
+      end;
 
       cboCurrency.ItemIndex := 0;
     finally
@@ -887,7 +904,7 @@ begin
               try
                 const I = cboCurrency.Items.IndexOfObject(TObject(reserve));
                 if I > -1 then
-                  cboCurrency.Items[I] := '$' + reserve.Symbol + #9 + Format('%.2f', [reserve.Unscale(sum)]);
+                  cboCurrency.Items[I] := '$' + reserve.Symbol + StringOfChar(#32, (4 - Length(reserve.Symbol)) + 1) + Format('%8s', [Format('%.2f', [reserve.Unscale(sum)])]);
               finally
                 cboCurrency.Items.EndUpdate;
               end;
@@ -912,7 +929,7 @@ begin
               try
                 cboCurrency.Items.BeginUpdate;
                 try
-                  cboCurrency.Items[Pred(cboCurrency.Items.Count)] := USD + #9 + Format('%.2f', [Summary(S)]);
+                  cboCurrency.Items[Pred(cboCurrency.Items.Count)] := USD + StringOfChar(#32, 2) + Format('%8s', [Format('%.2f', [Summary(S)])]);
                 finally
                   cboCurrency.Items.EndUpdate;
                 end;
@@ -950,11 +967,11 @@ begin
     group.lbl.Enabled := False;
   end;
 
-  const enable = procedure(proto: TLendingProtocolClass; sep: string; APY: Double)
+  const enable = procedure(const proto: TLendingProtocolClass; const APY: Double)
   begin
     var group := GetLendingProtocolGroup(proto);
     group.img.Opacity := 1;
-    group.lbl.Text    := proto.Name + sep + Format('%.2f%%', [APY]);
+    group.lbl.Text    := proto.Name + StringOfChar(#32, (14 - Length(proto.Name)) + 2) + Format('%.2f%%', [APY]);
     group.lbl.Enabled := True;
   end;
 
@@ -973,35 +990,35 @@ begin
         if C = -1 then
           disable(TCompound)
         else
-          enable(TCompound, #9, C);
+          enable(TCompound, C);
         if F = -1 then
           disable(TFulcrum)
         else
-          enable(TFulcrum, #32 + #9#9, F);
+          enable(TFulcrum, F);
         if A = -1 then
           disable(TAave)
         else
-          enable(TAave, #9#9, A);
+          enable(TAave, A);
         if I = -1 then
           disable(TIdle)
         else
-          enable(TIdle, #32#32#32 + #9#9, I);
+          enable(TIdle, I);
         if Y2 = -1 then
           disable(TyEarnV2)
         else
-          enable(TyEarnV2, #9#9, Y2);
+          enable(TyEarnV2, Y2);
         if Y3 = -1 then
           disable(TyEarnV3)
         else
-          enable(TyEarnV3, #9#9, Y3);
+          enable(TyEarnV3, Y3);
         if V2 = -1 then
           disable(TyVaultV2)
         else
-          enable(TyVaultV2, #9#9, V2);
+          enable(TyVaultV2,V2);
         if O = -1 then
           disable(TOrigin)
         else
-          enable(TOrigin, #32#32 + #9#9, O);
+          enable(TOrigin, O);
       end);
 
       if Assigned(onExit) then onExit;

@@ -9,9 +9,9 @@ uses
   web3.eth.etherscan,
   web3.sync;
 
-// C  == Compound
+// C  == Compound v2
 // F  == Ooki (previously known as Fulcrum)
-// A  == Aave
+// A  == Aave v2
 // I  == Idle
 // Y2 == Yearn earn v2
 // Y3 == Yearn earn v3

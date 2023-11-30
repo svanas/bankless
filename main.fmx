@@ -57,7 +57,7 @@ object frmMain: TfrmMain
   end
   object edtAddress: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 1
+    TabOrder = 0
     Position.X = 88.000000000000000000
     Position.Y = 12.000000000000000000
     Size.Width = 280.000000000000000000
@@ -69,11 +69,10 @@ object frmMain: TfrmMain
   object lblAddress: TLabel
     Position.X = 8.000000000000000000
     Position.Y = 15.000000000000000000
-    Size.Width = 74.000000000000000000
+    Size.Width = 80.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'My address:'
-    TabOrder = 0
   end
   object cboCurrency: TComboBox
     DropDownKind = Custom
@@ -82,52 +81,52 @@ object frmMain: TfrmMain
     Size.Width = 145.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 3
+    TabOrder = 2
     OnChange = cboCurrencyChange
     OnPopup = cboCurrencyPopup
   end
   object lblCompound: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 111.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Compound'
-    TabOrder = 8
+    TextSettings.Font.Family = 'Courier New'
+    Text = 'Compound v2'
   end
   object cboChain: TComboBox
     Position.X = 376.000000000000000000
     Position.Y = 12.000000000000000000
-    TabOrder = 2
+    TabOrder = 1
     OnChange = cboChainChange
   end
   object lblFulcrum: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 145.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Courier New'
     Text = 'Ooki'
-    TabOrder = 12
   end
   object lblAave: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 179.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Aave'
-    TabOrder = 16
+    TextSettings.Font.Family = 'Courier New'
+    Text = 'Aave v2'
   end
   object edtCompound: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 9
+    TabOrder = 6
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -139,7 +138,7 @@ object frmMain: TfrmMain
   end
   object edtFulcrum: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 13
+    TabOrder = 9
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -151,7 +150,7 @@ object frmMain: TfrmMain
   end
   object edtAave: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 17
+    TabOrder = 12
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -168,7 +167,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 10
+    TabOrder = 7
     Text = 'Transfer to'
     OnClick = btnCompoundClick
   end
@@ -179,7 +178,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 14
+    TabOrder = 10
     Text = 'Transfer to'
     OnClick = btnFulcrumClick
   end
@@ -190,7 +189,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 18
+    TabOrder = 13
     Text = 'Transfer to'
     OnClick = btnAaveClick
   end
@@ -200,7 +199,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 40
+    TabOrder = 30
     Text = 'Refresh'
     OnClick = btnRefreshClick
   end
@@ -219,7 +218,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 108.000000000000000000
-    TabOrder = 11
+    TabOrder = 8
     OnChange = cboProtoChange
   end
   object cboFulcrum: TComboBox
@@ -237,7 +236,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 142.000000000000000000
-    TabOrder = 15
+    TabOrder = 11
     OnChange = cboProtoChange
   end
   object cboAave: TComboBox
@@ -255,22 +254,23 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 176.000000000000000000
-    TabOrder = 19
+    TabOrder = 14
     OnChange = cboProtoChange
   end
   object lblWallet: TLabel
     Enabled = False
+    StyledSettings = [Size, Style, FontColor]
     Position.X = 88.000000000000000000
     Position.Y = 58.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Courier New'
     Text = 'My wallet balance'
-    TabOrder = 4
   end
   object edtWallet: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 5
+    TabOrder = 3
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -295,7 +295,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 55.000000000000000000
-    TabOrder = 7
+    TabOrder = 5
   end
   object btnWallet: TButton
     Enabled = False
@@ -304,7 +304,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 6
+    TabOrder = 4
     Text = 'Deposit to'
     OnClick = btnWalletClick
   end
@@ -378,7 +378,7 @@ object frmMain: TfrmMain
   end
   object edtIdle: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 33
+    TabOrder = 24
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -395,7 +395,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 34
+    TabOrder = 25
     Text = 'Transfer to'
     OnClick = btnIdleClick
   end
@@ -414,19 +414,19 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 350.000000000000000000
-    TabOrder = 35
+    TabOrder = 26
     OnChange = cboProtoChange
   end
   object lblIdle: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 353.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Courier New'
     Text = 'Idle'
-    TabOrder = 32
   end
   object imgIdle: TGlyph
     Position.X = 52.000000000000000000
@@ -436,7 +436,7 @@ object frmMain: TfrmMain
   end
   object edtYearnV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 21
+    TabOrder = 15
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -448,14 +448,14 @@ object frmMain: TfrmMain
   end
   object lblYearnV2: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 232.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'yEarn v2'
-    TabOrder = 20
+    TextSettings.Font.Family = 'Courier New'
+    Text = 'Yearn earn v2'
   end
   object imgYearnV2: TGlyph
     Position.X = 52.000000000000000000
@@ -470,7 +470,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 22
+    TabOrder = 16
     Text = 'Transfer to'
     OnClick = btnYearnV2Click
   end
@@ -489,7 +489,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 229.000000000000000000
-    TabOrder = 23
+    TabOrder = 17
     OnChange = cboProtoChange
   end
   object imgWallet: TGlyph
@@ -499,7 +499,7 @@ object frmMain: TfrmMain
   end
   object edtYearnV3: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 25
+    TabOrder = 18
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -511,14 +511,14 @@ object frmMain: TfrmMain
   end
   object lblYearnV3: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 266.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'yEarn v3'
-    TabOrder = 24
+    TextSettings.Font.Family = 'Courier New'
+    Text = 'Yearn earn v3'
   end
   object imgYearnV3: TGlyph
     Position.X = 52.000000000000000000
@@ -533,7 +533,7 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 26
+    TabOrder = 19
     Text = 'Transfer to'
     OnClick = btnYearnV3Click
   end
@@ -552,7 +552,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 263.000000000000000000
-    TabOrder = 27
+    TabOrder = 20
     OnChange = cboProtoChange
   end
   object cboYvaultV2: TComboBox
@@ -570,7 +570,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 297.000000000000000000
-    TabOrder = 31
+    TabOrder = 23
     OnChange = cboProtoChange
   end
   object btnYvaultV2: TButton
@@ -580,13 +580,13 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 30
+    TabOrder = 22
     Text = 'Transfer to'
     OnClick = btnYvaultV2Click
   end
   object edtYvaultV2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 29
+    TabOrder = 21
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -598,14 +598,14 @@ object frmMain: TfrmMain
   end
   object lblYvaultV2: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 300.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'yVault v2'
-    TabOrder = 28
+    TextSettings.Font.Family = 'Courier New'
+    Text = 'Yearn vault v2'
   end
   object imgYvaultV2: TGlyph
     Position.X = 52.000000000000000000
@@ -628,7 +628,7 @@ object frmMain: TfrmMain
     ItemIndex = 0
     Position.X = 484.000000000000000000
     Position.Y = 384.000000000000000000
-    TabOrder = 39
+    TabOrder = 29
     OnChange = cboProtoChange
   end
   object btnOrigin: TButton
@@ -638,13 +638,13 @@ object frmMain: TfrmMain
     Size.Width = 100.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 38
+    TabOrder = 28
     Text = 'Transfer to'
     OnClick = btnOriginClick
   end
   object edtOrigin: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 37
+    TabOrder = 27
     Cursor = crIBeam
     Max = 9.999999843067494E17
     ValueType = Float
@@ -656,14 +656,14 @@ object frmMain: TfrmMain
   end
   object lblOrigin: TLabel
     Enabled = False
-    StyledSettings = [Family, Size, Style]
+    StyledSettings = [Size, Style]
     Position.X = 88.000000000000000000
     Position.Y = 387.000000000000000000
     Size.Width = 179.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Courier New'
     Text = 'Origin'
-    TabOrder = 36
   end
   object imgOrigin: TGlyph
     Position.X = 52.000000000000000000
