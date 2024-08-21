@@ -94,6 +94,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Compound v2'
   end
   object cboChain: TComboBox
@@ -111,6 +112,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Ooki'
   end
   object lblAave: TLabel
@@ -122,6 +124,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Aave v2'
   end
   object edtCompound: TNumberBox
@@ -169,6 +172,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 7
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnCompoundClick
   end
   object btnFulcrum: TButton
@@ -180,6 +184,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 10
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnFulcrumClick
   end
   object btnAave: TButton
@@ -191,6 +196,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 13
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnAaveClick
   end
   object btnRefresh: TButton
@@ -201,6 +207,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 30
     Text = 'Refresh'
+    TextSettings.Trimming = None
     OnClick = btnRefreshClick
   end
   object cboCompound: TComboBox
@@ -266,6 +273,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'My wallet balance'
   end
   object edtWallet: TNumberBox
@@ -306,6 +314,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 4
     Text = 'Deposit to'
+    TextSettings.Trimming = None
     OnClick = btnWalletClick
   end
   object imgCompound: TGlyph
@@ -397,6 +406,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 25
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnIdleClick
   end
   object cboIdle: TComboBox
@@ -426,6 +436,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Idle'
   end
   object imgIdle: TGlyph
@@ -455,6 +466,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Yearn earn v2'
   end
   object imgYearnV2: TGlyph
@@ -472,6 +484,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 16
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnYearnV2Click
   end
   object cboYearnV2: TComboBox
@@ -518,6 +531,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Yearn earn v3'
   end
   object imgYearnV3: TGlyph
@@ -535,6 +549,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 19
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnYearnV3Click
   end
   object cboYearnV3: TComboBox
@@ -582,6 +597,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 22
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnYvaultV2Click
   end
   object edtYvaultV2: TNumberBox
@@ -605,6 +621,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Yearn vault v2'
   end
   object imgYvaultV2: TGlyph
@@ -640,6 +657,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 28
     Text = 'Transfer to'
+    TextSettings.Trimming = None
     OnClick = btnOriginClick
   end
   object edtOrigin: TNumberBox
@@ -663,6 +681,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Courier New'
+    TextSettings.WordWrap = False
     Text = 'Origin'
   end
   object imgOrigin: TGlyph
